@@ -4,7 +4,7 @@ var http = require('http');
 var url = require('url');
 var fs = require('fs');
 
-var supported = ['artists', 'news', 'info', 'program', 'general', 'services', 'arrival'];
+var supported = ['faq', 'artists', 'news', 'info', 'program', 'general', 'services', 'arrival'];
 var middleware = function(req, res) {
   var pathname = url.parse(req.url).pathname;
   var regex = new RegExp("^\\/("+supported.join("|")+")$");
