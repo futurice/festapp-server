@@ -15,8 +15,8 @@ var server = http.createServer(function(req, res) {
         res.writeHead(500, 'Internal server error');
         res.end('Server Error');
       } else {
+        res.setHeader('Last-Modified', MOCK_LAST_MODIFIED);
         res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8'});
-        res.header('Last-Modified', MOCK_LAST_MODIFIED);
         res.end(data);
       }
     });
