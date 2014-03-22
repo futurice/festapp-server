@@ -19,4 +19,5 @@ var middleware = function(req, res) {
 
 var app = express().use('/api', middleware);
 var port = Number(process.env.PORT || 8080);
+app.use('/public', express.static(__dirname + '/public'));
 http.createServer(app).listen(port);
