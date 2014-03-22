@@ -1,0 +1,11 @@
+[
+    {
+        "id": "1",
+        "title": "An example news item number one!",
+        "image": "",
+        "teaser_text": "This is a teaser text for the news article.",
+        "content": "<p>This is the content of the article, HTML formatted to your liking.</p><br><br></p>\r\n",
+        "time": "1411396129",
+        "status": "show"
+    }
+]
