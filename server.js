@@ -3,6 +3,7 @@ var url = require('url');
 var fs = require('fs');
 
 var supported = ['artistit', 'uutiset', 'info', 'ohjelma', 'general', 'services', 'arrival'];
+var MOCK_LAST_MODIFIED = new Date('2014-01-01');
 
 var server = http.createServer(function(req, res) {
   var pathname = url.parse(req.url).pathname;
@@ -15,6 +16,7 @@ var server = http.createServer(function(req, res) {
         res.end('Server Error');
       } else {
         res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8'});
+        res.header('Last-Modified', MOCK_LAST_MODIFIED);
         res.end(data);
       }
     });
