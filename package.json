@@ -1,0 +1,27 @@
+{
+  "name": "festapp-server",
+  "version": "0.0.0",
+  "description": "Basic mockup server for festapp",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/futurice/festapp-server.git"
+  },
+  "keywords": [
+    "festival",
+    "backend"
+  ],
+  "author": "Juho Vähä-Herttua, Matias Kirvelä",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/futurice/festapp-server/issues"
+  },
+  "homepage": "https://github.com/futurice/festapp-server",
+  "engines": {
+    "node": "0.10.x"
+  }
+}
