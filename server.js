@@ -2,7 +2,7 @@ var http = require('http');
 var url = require('url');
 var fs = require('fs');
 
-var supported = ['artistit', 'uutiset', 'info', 'ohjelma', 'general', 'services', 'arrival'];
+var supported = ['artists', 'news', 'info', 'program', 'general', 'services', 'arrival'];
 var MOCK_LAST_MODIFIED = new Date('2014-01-01');
 
 var server = http.createServer(function(req, res) {
