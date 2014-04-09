@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Niitty",
+    "x": 100,
+    "y": 100,
+    "width": 100,
+    "height": 100
+  },
+  {
+    "name": "Ranta",
+    "x": 300,
+    "y": 300,
+    "width": 100,
+    "height": 100
+  },
+  {
+    "name": "Teltta",
+    "x": 500,
+    "y": 500,
+    "width": 100,
+    "height": 100
+  },
+  {
+    "name": "Louna",
+    "x": 700,
+    "y": 700,
+    "width": 100,
+    "height": 100
+  },
+  {
+    "name": "Mini",
+    "x": 900,
+    "y": 900,
+    "width": 100,
+    "height": 100
+  }
+]
