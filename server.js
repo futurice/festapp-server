@@ -10,23 +10,30 @@ var middleware = function(req, res) {
 var instagram = function(req, res) {
   var ig = require('instagram-node').instagram();
   ig.use({ client_id: '',
-         client_secret: ''});
+           client_secret: ''});
   ig.tag_media_recent('ruisrock', function(err, medias, pagination, limit) {
-    //res.send(JSON.stringify(medias));
-    var data = [];
-    medias.forEach(function(media){
-      var obj = {}; 
-      obj.link = media.link;
-      obj.title = (media.caption==null)?"":media.caption.text;
-      obj.thumbnail = media.images.thumbnail.url;
-      obj.small_image = media.images.low_resolution.url;
-      obj.image = media.images.standard_resolution.url;
-      obj.likes = media.likes.count;
-      obj.tags = media.tags;
-      data.push(obj);
-    });
-    res.send(JSON.stringify(data));
+    res.send(JSON.stringify(parseIgMedia(medias)));
   });
+}
+
+var parseIgMedia = function(medias){
+  var data = [];
+  medias.forEach(function(media){
+    data.push(parseIgMediaObject(media));
+  });
+  return data;
+}
+
+var parseIgMediaObject = function(media){
+  return {
+    link: media.link,
+    title: (media.caption==null)?"":media.caption.text,
+    thumbnail: media.images.thumbnail.url,
+    small_image: media.images.low_resolution.url,
+    image: media.images.standard_resolution.url,
+    likes: media.likes.count,
+    tags: media.tags
+  }
 }
 
 var app = express()
