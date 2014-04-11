@@ -15,7 +15,7 @@ var middleware = function(req, res) {
 
 var app = express()
   .use('/api', middleware)
-  .use('/admin', express.static(__dirname + '/admin'))
+  .use('/app', express.static(__dirname + '/app'))
   .use('/public', express.static(__dirname + '/public'));
 
 var port = Number(process.env.PORT || 8080);

@@ -1,7 +1,7 @@
 'use strict';
 
 
-// Declare admin level module which depends on filters, and services
+// Declare app level module which depends on filters, and services
 angular.module('myApp', [
   'ngRoute',
   'myApp.filters',
