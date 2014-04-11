@@ -1,6 +1,8 @@
 festapp-server
 ==============
 
+[![Build Status](https://travis-ci.org/futurice/festapp-server.svg?branch=travis)](https://travis-ci.org/futurice/festapp-server)
+
 Run the project:
 
 `node server`
