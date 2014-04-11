@@ -7,4 +7,10 @@ angular.module('myApp.controllers', []).
             $scope.artists = data;
         });
 
+    }).
+    controller('NewsListCtrl', function ($scope, $http) {
+        $http.get('../api/news').success(function(data) {
+            $scope.news = data;
+        });
+
     });
