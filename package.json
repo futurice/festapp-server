@@ -27,7 +27,8 @@
   "dependencies": {
     "express": ">= 3.5.0",
     "mongoose": "^3.8.8",
-    "express-restify-mongoose": "^0.6.7"
+    "express-restify-mongoose": "^0.6.7",
+    "request": "^2.34.0"
   },
   "devDependencies": {
     "jshint": "~2.5.0",
