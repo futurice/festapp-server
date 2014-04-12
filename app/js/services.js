@@ -10,42 +10,30 @@ var myAppServices = angular.module('myApp.services', ['ngResource']).value('vers
 
 myAppServices.factory('Artist', ['$resource',
     function($resource){
-
         return $resource('../api/v1/artists/:artistId', {artistId: '@id'}, {update: {method:"PUT"}});
-
-
     }]);
 
 myAppServices.factory('Event', ['$resource',
     function($resource){
-        return $resource('../api/v1/events', {}, {
-            query: {method:'GET', params: {eventId:'events'}, isArray:true}
-        });
+        return $resource('../api/v1/event/:eventId', {eventId: '@id'}, {update: {method:"PUT"}});
     }]);
 
 myAppServices.factory('News', ['$resource',
     function($resource){
-        return $resource('../api/v1/news', {}, {
-            query: {method:'GET', params: {eventId:'news'}, isArray:true}
-        });
+        return $resource('../api/v1/News/:newsId', {newsId: '@id'}, {update: {method:"PUT"}});
     }]);
+
 myAppServices.factory('Locations', ['$resource',
     function($resource){
-        return $resource('../api/v1/locations', {}, {
-            query: {method:'GET', params: {eventId:'locations'}, isArray:true}
-        });
+        return $resource('../api/v1/location/:locationId', {locationId: '@id'}, {update: {method:"PUT"}});
     }]);
 
 myAppServices.factory('Info', ['$resource',
     function($resource){
-        return $resource('../api/v1/info', {}, {
-            query: {method:'GET', params: {eventId:'info'}, isArray:true}
-        });
+        return $resource('../api/v1/info/:infoId', {infoId: '@id'}, {update: {method:"PUT"}});
     }]);
 
 myAppServices.factory('Festival', ['$resource',
     function($resource){
-        return $resource('../api/v1/festival', {}, {
-            query: {method:'GET', params: {eventId:'festival'}, isArray:true}
-        });
+        return $resource('../api/v1/festival/:festivalId', {festivalId: '@id'}, {update: {method:"PUT"}});
     }]);
