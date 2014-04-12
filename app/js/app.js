@@ -10,7 +10,7 @@ angular.module('myApp', [
     'myApp.controllers'
 ]).
     config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/artists', {templateUrl: './partials/artists.html', controller: 'ArtistsListCtrl'});
+        $routeProvider.when('/artists/:artistId', {templateUrl: './partials/artists.html', controller: 'ArtistsListCtrl'});
         $routeProvider.when('/news', {templateUrl: './partials/news.html', controller: 'NewsListCtrl'});
         $routeProvider.otherwise({redirectTo: '/news'});
     }]);
