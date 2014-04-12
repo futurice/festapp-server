@@ -188,5 +188,9 @@ GET http://localhost/api/v1/weather/helsinki/1397317513
 GET http://localhost/api/v1/weather/helsinki
 
 Epoch time is optional, leaving it out gives weather for current time.
+
+Returns {"temp":4.99,"weather":"partly cloudy"}
+Where temp is in celsius and the weather one of the following:
+'error','sunny','partly cloudy','cloudy','light rain','rain','heavy rain','storm','snow','fog'
 ```
 
