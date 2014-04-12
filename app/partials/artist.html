@@ -1,7 +1,29 @@
 <h3>{{artist.name}}</h3>
 <form>
+    <div ng-repeat="field in schema">
+        <div ng-switch on="field.type">
+            <div ng-switch-when="String">
+                <input type="text" ng-model=artist[field.name] /> {{field.name}}
+            </div>
+            <div ng-switch-when="Date">
+                <div class="input-append date" onload="$(this).datetimepicker({language: 'pt-BR'});">
+                    <input data-format="dd/MM/yyyy hh:mm:ss" type="text" ng-model=artist[field.name] />
+                    <span class="add-on">
+                      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                      </i>
+                    </span>
+                </div>
+            </div>
+            <div ng-switch-default>
+                 <input type="text" ng-model=artist[field.name] /> {{field.name}}
+            </div>
+        </div>
+    </div>
+</form>
+
+<form>
     <table ng-repeat="field in schema">
-        <tr><td>{{field.name}}, type {{field.type}}</td><td><input type="text" ng-model=artist[field.name] /></td></tr>
+        <!--<tr><td>{{field.name}}, type {{field.type}}</td><td><input type="text" ng-model=artist[field.name] /></td></tr>-->
     </table>
     <input type="submit" value="Submit da shit" ng-click="saveArtist()"/>
 </form>
