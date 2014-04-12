@@ -15,17 +15,17 @@ myAppServices.factory('Artist', ['$resource',
 
 myAppServices.factory('Event', ['$resource',
     function($resource){
-        return $resource('../api/v1/event/:eventId', {eventId: '@id'}, {update: {method:"PUT"}});
+        return $resource('../api/v1/events/:eventId', {eventId: '@id'}, {update: {method:"PUT"}});
     }]);
 
 myAppServices.factory('News', ['$resource',
     function($resource){
-        return $resource('../api/v1/News/:newsId', {newsId: '@id'}, {update: {method:"PUT"}});
+        return $resource('../api/v1/news/:newsId', {newsId: '@id'}, {update: {method:"PUT"}});
     }]);
 
 myAppServices.factory('Locations', ['$resource',
     function($resource){
-        return $resource('../api/v1/location/:locationId', {locationId: '@id'}, {update: {method:"PUT"}});
+        return $resource('../api/v1/locations/:locationId', {locationId: '@id'}, {update: {method:"PUT"}});
     }]);
 
 myAppServices.factory('Info', ['$resource',

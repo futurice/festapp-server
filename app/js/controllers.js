@@ -5,10 +5,9 @@ var myAppControllers = angular.module('myApp.controllers', []);
 
 myAppControllers.
     controller('ArtistsListCtrl', ['$scope', '$routeParams', '$location', 'Artist', function ($scope, $routeParams, $location, Artist) {
-
-            Artist.query(function(response){
-              $scope.artists = response;
-            });
+        Artist.query(function(response){
+          $scope.artists = response;
+        });
     }]);
 
 myAppControllers.
@@ -63,8 +62,10 @@ myAppControllers.
   }]);
 
 myAppControllers.
-    controller('EventsListsCtrl', ['$scope', 'Events', function ($scope, Event) {
-        $scope.events = Event.query();
+    controller('EventsListCtrl', ['$scope', 'Event', function ($scope, Event) {
+      Event.query(function(response){
+        $scope.events = response;
+      });
     }]);
 
 myAppControllers.
@@ -81,7 +82,9 @@ myAppControllers.
 
 myAppControllers.
     controller('NewsListCtrl', ['$scope', 'News', function($scope, News) {
-        $scope.news = query();
+      News.query(function(response){
+        $scope.newss = response;
+      });
     }]);
 
 myAppControllers.
@@ -98,24 +101,28 @@ myAppControllers.
 
 myAppControllers.
     controller('LocationsListCtrl', ['$scope', 'Locations',function($scope, Locations) {
-        $scope.locations = query();
+      Locations.query(function(response){
+        $scope.locations = response;
+      });
     }]);
 
 myAppControllers.
-  controller('LocationsCtrl', ['$scope', '$routeParams', '$location', 'Locations', function ($scope, $routeParams, $location, Locations) {
+  controller('LocationCtrl', ['$scope', '$routeParams', '$location', 'Location', function ($scope, $routeParams, $location, Location) {
 
-    Locations.get({locationsId: $routeParams.locationsId}, function(locations) {
-      $scope.locations = locations;
+    Locations.get({locationId: $routeParams.locationId}, function(location) {
+      $scope.location = location;
     });
 
-    $scope.saveLocations = function(){
-      Locations.update({ locationsId:$scope.locations._id},$scope.locations);
+    $scope.saveLocation = function(){
+      Location.update({ locationId:$scope.location._id},$scope.location);
     }
   }]);
 
 myAppControllers.
     controller('InfoListCtrl', ['$scope', 'Info', function($scope, Info) {
-        $scope.info = query();
+      Info.query(function(response){
+        $scope.infos = response;
+      });
     }]);
 
 myAppControllers.
@@ -133,7 +140,9 @@ myAppControllers.
 myAppControllers.
   controller('FestivalCtrl', ['$scope', '$routeParams', '$location', 'Festival', function ($scope, $routeParams, $location, Festival) {
 
-    $scope.hello2 = Festival.query();
+    Festival.query(function(response){
+      $scope.festivals = response;
+    });
 
     Festival.get({festivalId: $routeParams.festivalId}, function(festival) {
       $scope.festival = festival;
