@@ -108,9 +108,11 @@ app.get('/api' + apiVersion + '/schema/:model', function(req, res) {
   var props = Object.keys(schema);
   var publicSchema = {};
   props.forEach(function(val) {
+    // Remove unwanted property
     if (val !== '__v') {
+      // Detect wether the values constructor is of type Array
       if (schema[val].constructor.name === 'Array') {
-        publicSchema[val] = [schema[val][0].name];
+        publicSchema[val] = [schema[val][0].name]; // To inform the calling party what type of an array this is, we get the array's first member, which happens to bo the constructor for the inner type
       } else if (schema[val].constructor.name === 'Object') {
         publicSchema[val] = schema[val].type.name;
       } else {
