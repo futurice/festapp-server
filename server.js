@@ -16,6 +16,15 @@ var Event = require('./api/models/event');
 var Location = require('./api/models/location');
 var Festival = require('./api/models/festival');
 
+var modelMap = {
+  'artist': Artist,
+  'info': Info,
+  'news': News,
+  'event': Event,
+  'location': Location,
+  'festival': Festival
+};
+
 var mongourl = process.env.MONGOLAB_URI || 'mongodb://localhost/festapp-dev';
 mongoose.connect(mongourl);
 var db = mongoose.connection;
@@ -94,9 +103,22 @@ app.post('/api' + apiVersion + '/events/:event_id/star', function(req, res) {
   });
 });
 
+app.get('/api' + apiVersion + '/schema/:model', function(req, res) {
+  var schema = modelMap[req.params.model].schema.tree;
+  var props = Object.keys(schema);
+  var publicSchema = {};
+  props.forEach(function(val) {
+    if (val !== '__v') {
+      publicSchema[val] = schema[val].name;
+    }
+  });
+  res.json(publicSchema);
+});
+
 restify.defaults({
    outputFn: Localise.localiseApiCallResult,
-   version: apiVersion
+   version: apiVersion,
+   private: '__v'
 });
 
 restify.serve(app, Artist);
