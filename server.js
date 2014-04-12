@@ -65,8 +65,11 @@ app.use('/api' + apiVersion + '/twitter/search/:search/:count?',  twitter.twitte
   .use('/api' + apiVersion + '/twitter/hashtag/:hashtag/:count?', twitter.twitter.createHandler(twatter, 'hashtag'))
 
 
+
 app.use('/public', express.static(__dirname + '/public'));
-app.get('/api/v1/weather/:city/:ts?', Weather.weather);
+
+app.get('/api/v1/weather/:city/:timestamp?', Weather.weather);
+
 
 
 app.get('/api'+apiVersion+'/localisation/:key', function(req, res) {
