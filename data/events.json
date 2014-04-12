@@ -1,0 +1,11 @@
+[
+  {
+    "title": "Bad Finance's gig",
+    "start_time": "2014-04-12T10:00:00.000Z",
+    "end_time": "2014-04-12T12:00:00.000Z",
+    "location": "Niitty",
+    "description": "Awesome gig!",
+    "artists": ["Bad Finance"],
+    "starred_count": 0
+  }
+]
