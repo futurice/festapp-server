@@ -55,11 +55,11 @@ restify.defaults({
 });
 
 restify.serve(app, Artist);
-restify.serve(app, Faq);
+restify.serve(app, Faq, { plural: true });
 restify.serve(app, News);
 restify.serve(app, Program);
 restify.serve(app, Stage);
-restify.serve(app, Festival);
+restify.serve(app, Festival, { plural: true });
 
 var port = Number(process.env.PORT || 8080);
 http.createServer(app).listen(port);
