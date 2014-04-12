@@ -28,7 +28,8 @@
     "express": ">= 3.5.0",
     "instagram-node": ">= 0.2.3",
     "mongoose": "^3.8.8",
-    "express-restify-mongoose": "^0.6.7"
+    "express-restify-mongoose": "^0.6.7",
+    "memory-cache": "0.0.5"
   },
   "devDependencies": {
     "jshint": "~2.5.0",
