@@ -9,6 +9,11 @@ myAppControllers.
     }]);
 
 myAppControllers.
+    controller('EventsListsCtrl', ['$scope', 'Events', function ($scope, Event) {
+        $scope.events = Event.query();
+    }]);
+
+myAppControllers.
     controller('HomeCtrl', ['$scope', function($scope) {
         $scope.hello = 'Hola!';
     }]);
