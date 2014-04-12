@@ -1,12 +1,11 @@
 var mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
 
-var programSchema = new Schema({
+var InfoSchema = new Schema({
   title: String,
-  cover_image: String,
+  image: String,
   content: String,
   place: Number
 });
 
-module.exports = mongoose.model('Program', programSchema);
+module.exports = mongoose.model('Info', InfoSchema);

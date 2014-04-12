@@ -12,8 +12,7 @@ var FestivalSchema = new Schema({
   coordinates: {
     lat: Number,
     lon: Number
-  },
-  content: Schema.Types.Mixed
+  }
 });
 
 module.exports = mongoose.model('Festival', FestivalSchema);

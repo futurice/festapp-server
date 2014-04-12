@@ -39,10 +39,12 @@
     "redis": "^0.10.1",
     "redis-url": "^0.2.0",
     "after": "^0.8.1",
-    "body-parser": "^1.0.1"
+    "body-parser": "^1.0.1",
+    "mongoose-unique-validator": "^0.3.0"
   },
   "devDependencies": {
     "gulp": "^3.6.0",
-    "gulp-jshint": "^1.5.3"
+    "gulp-jshint": "^1.5.3",
+    "gulp-nodemon": "^1.0.2"
   }
 }
