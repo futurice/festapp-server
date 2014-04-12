@@ -3903,11 +3903,11 @@ function createInjector(modulesToLoad) {
  * @requires $rootScope
  *
  * @description
- * When called, it checks current value of `$location.hash()` and scroll to related element,
+ * When called, it checks current value of `$locations.html.hash()` and scroll to related element,
  * according to rules specified in
  * [Html5 spec](http://dev.w3.org/html5/spec/Overview.html#the-indicated-part-of-the-document).
  *
- * It also watches the `$location.hash()` and scrolls whenever it changes to match any anchor.
+ * It also watches the `$locations.html.hash()` and scrolls whenever it changes to match any anchor.
  * This can be disabled by calling `$anchorScrollProvider.disableAutoScrolling()`.
  *
  * @example
@@ -3919,11 +3919,11 @@ function createInjector(modulesToLoad) {
        </div>
      </file>
      <file name="script.js">
-       function ScrollCtrl($scope, $location, $anchorScroll) {
+       function ScrollCtrl($scope, $locations.html, $anchorScroll) {
          $scope.gotoBottom = function (){
-           // set the location.hash to the id of
+           // set the locations.html.hash to the id of
            // the element you wish to scroll to.
-           $location.hash('bottom');
+           $locations.html.hash('bottom');
 
            // call $anchorScroll()
            $anchorScroll();
@@ -3983,7 +3983,7 @@ function $AnchorScrollProvider() {
     }
 
     // does not scroll when user clicks on anchor link that is currently on
-    // (no url change, no $location.hash() change), browser native does scroll
+    // (no url change, no $locations.html.hash() change), browser native does scroll
     if (autoScrollingEnabled) {
       $rootScope.$watch(function autoScrollWatch() {return $location.hash();},
         function autoScrollWatchAction() {
@@ -4382,22 +4382,22 @@ function Browser(window, document, $log, $sniffer) {
    *
    * @description
    * GETTER:
-   * Without any argument, this method just returns current value of location.href.
+   * Without any argument, this method just returns current value of locations.html.href.
    *
    * SETTER:
    * With at least one argument, this method sets url to new value.
    * If html5 history api supported, pushState/replaceState is used, otherwise
-   * location.href/location.replace is used.
+   * locations.html.href/locations.html.replace is used.
    * Returns its own instance to allow chaining
    *
-   * NOTE: this api is intended for use only by the $location service. Please use the
-   * {@link ng.$location $location service} to change url.
+   * NOTE: this api is intended for use only by the $locations.html service. Please use the
+   * {@link ng.$location $locations.html service} to change url.
    *
    * @param {string} url New url (when used as setter)
    * @param {boolean=} replace Should new url replace current history record ?
    */
   self.url = function(url, replace) {
-    // Android Browser BFCache causes location, history reference to become stale.
+    // Android Browser BFCache causes locations.html, history reference to become stale.
     if (location !== window.location) location = window.location;
     if (history !== window.history) history = window.history;
 
@@ -4423,8 +4423,8 @@ function Browser(window, document, $log, $sniffer) {
       return self;
     // getter
     } else {
-      // - newLocation is a workaround for an IE7-9 issue with location.replace and location.href
-      //   methods not updating location.href synchronously.
+      // - newLocation is a workaround for an IE7-9 issue with locations.html.replace and locations.html.href
+      //   methods not updating locations.html.href synchronously.
       // - the replacement is a workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=407172
       return newLocation || location.href.replace(/%27/g,"'");
     }
@@ -4458,8 +4458,8 @@ function Browser(window, document, $log, $sniffer) {
    *
    * The listener gets called with new url as parameter.
    *
-   * NOTE: this api is intended for use only by the $location service. Please use the
-   * {@link ng.$location $location service} to monitor url changes in angular apps.
+   * NOTE: this api is intended for use only by the $locations.html service. Please use the
+   * {@link ng.$location $locations.html service} to monitor url changes in angular apps.
    *
    * @param {function(string)} listener Listener function to be called when url changes.
    * @return {function(string)} Returns the registered listener fn - handy if the fn is anonymous.
@@ -9018,7 +9018,7 @@ function serverBase(url) {
 
 /**
  * LocationHtml5Url represents an url
- * This object is exposed as $location service when HTML5 mode is enabled and supported
+ * This object is exposed as $locations.html service when HTML5 mode is enabled and supported
  *
  * @constructor
  * @param {string} appBase application base URL
@@ -9085,7 +9085,7 @@ function LocationHtml5Url(appBase, basePrefix) {
 
 /**
  * LocationHashbangUrl represents url
- * This object is exposed as $location service when developer doesn't opt into html5 mode.
+ * This object is exposed as $locations.html service when developer doesn't opt into html5 mode.
  * It also serves as the base class for html5 mode fallback on legacy browsers.
  *
  * @constructor
@@ -9181,7 +9181,7 @@ function LocationHashbangUrl(appBase, hashPrefix) {
 
 /**
  * LocationHashbangUrl represents url
- * This object is exposed as $location service when html5 history api is enabled but the browser
+ * This object is exposed as $locations.html service when html5 history api is enabled but the browser
  * does not support it.
  *
  * @constructor
@@ -9226,7 +9226,7 @@ LocationHashbangInHtml5Url.prototype =
 
   /**
    * @ngdoc method
-   * @name $location#absUrl
+   * @name $locations.html#absUrl
    *
    * @description
    * This method is getter only.
@@ -9240,14 +9240,14 @@ LocationHashbangInHtml5Url.prototype =
 
   /**
    * @ngdoc method
-   * @name $location#url
+   * @name $locations.html#url
    *
    * @description
    * This method is getter / setter.
    *
    * Return url (e.g. `/path?a=b#hash`) when called without any parameter.
    *
-   * Change path, search and hash, when called with parameter and return `$location`.
+   * Change path, search and hash, when called with parameter and return `$locations.html`.
    *
    * @param {string=} url New url without base prefix (e.g. `/path?a=b#hash`)
    * @param {string=} replace The path that will be changed
@@ -9267,7 +9267,7 @@ LocationHashbangInHtml5Url.prototype =
 
   /**
    * @ngdoc method
-   * @name $location#protocol
+   * @name $locations.html#protocol
    *
    * @description
    * This method is getter only.
@@ -9280,7 +9280,7 @@ LocationHashbangInHtml5Url.prototype =
 
   /**
    * @ngdoc method
-   * @name $location#host
+   * @name $locations.html#host
    *
    * @description
    * This method is getter only.
@@ -9293,7 +9293,7 @@ LocationHashbangInHtml5Url.prototype =
 
   /**
    * @ngdoc method
-   * @name $location#port
+   * @name $locations.html#port
    *
    * @description
    * This method is getter only.
@@ -9306,14 +9306,14 @@ LocationHashbangInHtml5Url.prototype =
 
   /**
    * @ngdoc method
-   * @name $location#path
+   * @name $locations.html#path
    *
    * @description
    * This method is getter / setter.
    *
    * Return path of current url when called without any parameter.
    *
-   * Change path when called with parameter and return `$location`.
+   * Change path when called with parameter and return `$locations.html`.
    *
    * Note: Path should always begin with forward slash (/), this method will add the forward slash
    * if it is missing.
@@ -9327,14 +9327,14 @@ LocationHashbangInHtml5Url.prototype =
 
   /**
    * @ngdoc method
-   * @name $location#search
+   * @name $locations.html#search
    *
    * @description
    * This method is getter / setter.
    *
    * Return search part (as object) of current url when called without any parameter.
    *
-   * Change search part when called with parameter and return `$location`.
+   * Change search part when called with parameter and return `$locations.html`.
    *
    * @param {string|Object.<string>|Object.<Array.<string>>} search New search params - string or
    * hash object. Hash object may contain an array of values, which will be decoded as duplicates in
@@ -9374,14 +9374,14 @@ LocationHashbangInHtml5Url.prototype =
 
   /**
    * @ngdoc method
-   * @name $location#hash
+   * @name $locations.html#hash
    *
    * @description
    * This method is getter / setter.
    *
    * Return hash fragment when called without any parameter.
    *
-   * Change hash fragment when called with parameter and return `$location`.
+   * Change hash fragment when called with parameter and return `$locations.html`.
    *
    * @param {string=} hash New hash fragment
    * @return {string} hash
@@ -9390,10 +9390,10 @@ LocationHashbangInHtml5Url.prototype =
 
   /**
    * @ngdoc method
-   * @name $location#replace
+   * @name $locations.html#replace
    *
    * @description
-   * If called, all changes to $location during current `$digest` will be replacing current history
+   * If called, all changes to $locations.html during current `$digest` will be replacing current history
    * record, instead of adding new one.
    */
   replace: function() {
@@ -9424,17 +9424,17 @@ function locationGetterSetter(property, preprocess) {
 
 /**
  * @ngdoc service
- * @name $location
+ * @name $locations.html
  *
  * @requires $rootElement
  *
  * @description
- * The $location service parses the URL in the browser address bar (based on the
- * [window.location](https://developer.mozilla.org/en/window.location)) and makes the URL
+ * The $locations.html service parses the URL in the browser address bar (based on the
+ * [window.locations.html](https://developer.mozilla.org/en/window.locations.html)) and makes the URL
  * available to your application. Changes to the URL in the address bar are reflected into
- * $location service and changes to $location are reflected into the browser address bar.
+ * $locations.html service and changes to $locations.html are reflected into the browser address bar.
  *
- * **The $location service:**
+ * **The $locations.html service:**
  *
  * - Exposes the current URL in the browser address bar, so you can
  *   - Watch and observe the URL.
@@ -9445,7 +9445,7 @@ function locationGetterSetter(property, preprocess) {
  *   - Clicks on a link.
  * - Represents the URL object as a set of methods (protocol, host, port, path, search, hash).
  *
- * For more information see {@link guide/$location Developer Guide: Using $location}
+ * For more information see {@link guide/$location Developer Guide: Using $locations.html}
  */
 
 /**
@@ -9492,7 +9492,7 @@ function $LocationProvider(){
 
   /**
    * @ngdoc event
-   * @name $location#$locationChangeStart
+   * @name $locations.html#$locationChangeStart
    * @eventType broadcast on root scope
    * @description
    * Broadcasted before a URL will change. This change can be prevented by calling
@@ -9507,7 +9507,7 @@ function $LocationProvider(){
 
   /**
    * @ngdoc event
-   * @name $location#$locationChangeSuccess
+   * @name $locations.html#$locationChangeSuccess
    * @eventType broadcast on root scope
    * @description
    * Broadcasted after a URL was changed.
@@ -9562,7 +9562,7 @@ function $LocationProvider(){
       if (absHref && !elm.attr('target') && rewrittenUrl && !event.isDefaultPrevented()) {
         event.preventDefault();
         if (rewrittenUrl != $browser.url()) {
-          // update location manually
+          // update locations.html manually
           $location.$$parse(rewrittenUrl);
           $rootScope.$apply();
           // hack to work around FF6 bug 684208 when scenario runner clicks on links
@@ -9577,7 +9577,7 @@ function $LocationProvider(){
       $browser.url($location.absUrl(), true);
     }
 
-    // update $location when $browser url changes
+    // update $locations.html when $browser url changes
     $browser.onUrlChange(function(newUrl) {
       if ($location.absUrl() != newUrl) {
         $rootScope.$evalAsync(function() {
@@ -13934,7 +13934,7 @@ function $SnifferProvider() {
 
 
     return {
-      // Android has history.pushState, but it does not update location correctly
+      // Android has history.pushState, but it does not update locations.html correctly
       // so let's not use the history API at all.
       // http://code.google.com/p/android/issues/detail?id=17471
       // https://github.com/angular/angular.js/issues/904
@@ -15280,7 +15280,7 @@ function ngDirective(directive) {
  * the href attribute is empty.
  *
  * This change permits the easy creation of action links with the `ngClick` directive
- * without changing the location or causing page reloads, e.g.:
+ * without changing the locations.html or causing page reloads, e.g.:
  * `<a href="" ng-click="list.addItem()">Add Item</a>`
  */
 var htmlAnchorDirective = valueFn({
@@ -15357,7 +15357,7 @@ var htmlAnchorDirective = valueFn({
         <a id="link-3" ng-href="/{{'123'}}">link 3</a> (link, reload!)<br />
         <a id="link-4" href="" name="xx" ng-click="value = 4">anchor</a> (link, don't reload)<br />
         <a id="link-5" name="xxx" ng-click="value = 5">anchor</a> (no link)<br />
-        <a id="link-6" ng-href="{{value}}">link</a> (link, change location)
+        <a id="link-6" ng-href="{{value}}">link</a> (link, change locations.html)
       </file>
       <file name="protractor.js" type="protractor">
         it('should execute ng-click but not reload when href without value', function() {
@@ -20483,7 +20483,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
  *
  * @description
  * The `ngSwitch` directive is used to conditionally swap DOM structure on your template based on a scope expression.
- * Elements within `ngSwitch` but without `ngSwitchWhen` or `ngSwitchDefault` directives will be preserved at the location
+ * Elements within `ngSwitch` but without `ngSwitchWhen` or `ngSwitchDefault` directives will be preserved at the locations.html
  * as specified in the template.
  *
  * The directive itself works similar to ngInclude, however, instead of downloading template code (or loading it
@@ -21213,7 +21213,7 @@ var selectDirective = ['$compile', '$parse', function($compile,   $parse) {
         scope.$watch(render);
 
         function render() {
-              // Temporary location for the option groups before we render them
+              // Temporary locations.html for the option groups before we render them
           var optionGroups = {'':[]},
               optionGroupNames = [''],
               optionGroupName,
