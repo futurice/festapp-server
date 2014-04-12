@@ -3,6 +3,7 @@ var http = require('http');
 // var url = require('url');
 var restify = require('express-restify-mongoose');
 var mongoose = require('mongoose');
+var rotten = require('./lib/rotten');
 
 var Artist = require('./api/models/artist');
 var Faq = require('./api/models/faq');
@@ -19,6 +20,7 @@ db.once('open', function callback () {
 });
 
 var app = express();
+app.get('/api/rotten/:query', rotten.rotten);
 app.use('/public', express.static(__dirname + '/public'));
 
 restify.serve(app, Artist);
