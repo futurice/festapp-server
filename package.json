@@ -32,7 +32,8 @@
     "morgan": "^1.0.0",
     "redis": "^0.10.1",
     "redis-url": "^0.2.0",
-    "after": "^0.8.1"
+    "after": "^0.8.1",
+    "body-parser": "^1.0.1"
   },
   "devDependencies": {
     "jshint": "~2.5.0",
