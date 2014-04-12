@@ -15,3 +15,10 @@ myAppServices.factory('Artist', ['$resource',
         });
     }]);
 
+myAppServices.factory('Event', ['$resource',
+    function($resource){
+        return $resource('../api/v1/events', {}, {
+            query: {method:'GET', params: {eventId:'events'}, isArray:true}
+        });
+    }]);
+
