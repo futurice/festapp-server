@@ -1,0 +1,74 @@
+[
+    {
+        "title": "Frequently Asked Questions",
+        "image": "",
+        "content": "<p><strong>First question</strong><br><br>A comprehensive response<br><br>Second question<br>A comprehensive response<br><br><br></p>\r\n",
+        "place": "7"
+    },
+    {
+        "title": "Opening hours",
+        "image": "",
+        "content": "<p>The festival site is accessible like this.</p>",
+        "place": "7"
+    },
+    {
+        "title": "First aid",
+        "image": "",
+        "content": "<p>Where to go if help if you need a medic.</p>",
+        "place": "7"
+    },
+    {
+        "title": "Infostand",
+        "image": "",
+        "content": "<p>Where you can find the infostand</p>",
+        "place": "7"
+    },
+    {
+        "title": "Tickets",
+        "image": "",
+        "content": "<h2>Ticket prices</h2><p><strong>Premium ticket price</strong> <br /><strong>Economy ticket price<br /><strong>",
+        "place": "7"
+    },
+    {
+        "title": "Lost and found",
+        "image": "",
+        "content": "<p>Lost and found location and description.</p>",
+        "place": "7"
+    },
+    {
+        "title": "Accessibility",
+        "image": "",
+        "content": "<p>Accessibility details, such as how to go about if you have a wheelchair, etc.</p>",
+        "place": "7"
+    },
+    {
+        "title": "Activities",
+        "image": "",
+        "content": "<p>This is a placeholder text for various activities available at the festival site, such as bungee-jumping, ski-jumping, show jumping, chromosome jumping and so forth.</p>",
+        "place": "7"
+    },
+    {
+        "title": "Merchandise",
+        "image": "",
+        "content": "<p>An explanation on what you can buy, where you can buy it and how you can buy it.</p>",
+        "place": "7"
+    },
+    {
+        "title": "Phone charging",
+        "image": "",
+        "content": "<p>At these locations you can charge your handsets.</p>",
+        "place": "7"
+    },
+    {
+        "title": "Accommodation",
+        "image": "",
+        "content": "<h2>Camping</h2><p>The camping site is located at a certain location, directions and distance to which are given here.</p><h2>Hotels</h2><p>Nearby hotels and their contact information.</p>",
+        "place": "7"
+    },
+    {
+        "title": "Cloakroom",
+        "image": "",
+        "content": "<p>The cloakrooms are available there, there and there. The cost for storing your jacket and bag is as follows. The organizer is probably not responsible for what happens if you lose your cloakroom token.</p>",
+        "place": "7"
+    }
+]

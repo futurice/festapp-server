@@ -13,7 +13,7 @@
     "y": 300,
     "width": 100,
     "height": 100,
-    "type": "STAGE"
+    "type": "RESTAURANT"
   },
   {
     "name": "Teltta",
@@ -21,7 +21,7 @@
     "y": 500,
     "width": 100,
     "height": 100,
-    "type": "TENT"
+    "type": "STAGE"
   },
   {
     "name": "Louna",
@@ -29,7 +29,7 @@
     "y": 700,
     "width": 100,
     "height": 100,
-    "type": "TENT"
+    "type": "STAGE"
   },
   {
     "name": "Mini",
@@ -37,6 +37,6 @@
     "y": 900,
     "width": 100,
     "height": 100,
-    "type": "INDOOR"
+    "type": "STAGE"
   }
 ]
