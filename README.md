@@ -3,8 +3,11 @@ festapp-server
 
 [![Build Status](https://travis-ci.org/futurice/festapp-server.svg?branch=travis)](https://travis-ci.org/futurice/festapp-server)
 
-Install MongoDB and Redis.
-Install dependencies: `npm install`
+Festapp project page: http://futurice.github.io/festapp-server/
+
+* Install MongoDB and Redis.
+* Install dependencies: `npm install`
+* When developing locally: `node import-data.js`
 
 Run the project: `npm start`
 
@@ -24,7 +27,6 @@ Base URL is `/api/v1/`.
     "content": "<p>\r\nBAD finance was formed in the early 2011 by three guys, Sakari, Antti and Jari, all working at Futurice Tampere. The band started reheasing at Jari's student dorm in Hervanta but after Futurice office moved into bigger premises the boys got their own band room.</p>\r\n",
     "featured": false,
     "status": "show",
-    "location": "niitty",
     "founded": 2012,
     "genre": ["Love Metal"],
     "highlights": ["Bad Finance rocked the place at Futurice Christmas Party 2012."],
@@ -37,8 +39,7 @@ Base URL is `/api/v1/`.
     "_id": "53486eaaead3150200ca7919",
     "albums": ["First Album (2012)", "Second Album (2013)", "Third Album (2014)"],
     "members": ["Mike Arvela", "Sakari Hyöty", "Antti Mattila"],
-    "name": "Bad Finance",
-    "__v": 0
+    "name": "Bad Finance"
   }
 ]
 ```
@@ -54,8 +55,7 @@ Base URL is `/api/v1/`.
     "image": "",
     "content": "<p><strong>First question</strong><br><br>A comprehensive response<br><br>Second question<br>A comprehensive response<br><br><br></p>\r\n",
     "place": 7,
-    "_id": "53486eaaead3150200ca791a",
-    "__v": 0
+    "_id": "53486eaaead3150200ca791a"
   }
 ]
 ```
@@ -74,8 +74,7 @@ Base URL is `/api/v1/`.
     "content": "<p>This is the content of the article, HTML formatted to your liking.</p><br><br>\r\n",
     "time": "1970-01-17T08:03:16.129Z",
     "status": "show",
-    "_id": "53486eaaead3150200ca791d",
-    "__v": 0
+    "_id": "53486eaaead3150200ca791d"
   }
 ]
 ```
@@ -94,8 +93,7 @@ Base URL is `/api/v1/`.
     "type": "STAGE",
     "_id": "53486eaaead3150200ca791e",
     "name": "Niitty",
-    "description": "This is a stage",
-    "__v": 0
+    "description": "This is a stage"
   },
   {
     "x": 300,
@@ -105,8 +103,7 @@ Base URL is `/api/v1/`.
     "type": "STAGE",
     "_id": "53486eaaead3150200ca791f",
     "name": "Ranta",
-    "description": "This is a stage",
-    "__v": 0
+    "description": "This is a stage"
   }
 ]
 ```
@@ -143,18 +140,21 @@ Base URL is `/api/v1/`.
 [
   {
     "title": "Foo",
-    "y": 100,
     "start_time": "2014-04-12T10:00:00.000Z",
     "end_time": "2014-04-12T12:00:00.000Z",
     "location": "Niitty",
     "_id": "53486eaaead3150200ca791e",
     "artists": ["Tapani Kansa"],
     "description": "This is a stage",
-    "__v": 0
+    "starred_count": 2
   }
 ]
 ```
+### Starring events
 
+`POST /events/:event_id/star`
+
+`user_id` parameter must be set in the POST body. `user_id` is used to uniquely identify users and one user can star one event only once. `event_id` is the database id of event.
 
 ### Getting localised data
 

@@ -25,13 +25,25 @@ redis.on('error', function (err) {
   console.error('Redis server cannot be reachead: ' + err);
 });
 
+var apiVersion = '/v1';
+
+// Only allow GET, OPTIONS and HEAD-requests to /api-calls
+function accessFilter(req, res, next) {
+  var matchStar = new RegExp(apiVersion+'/events/\\w+/star.*').test(req.path);
+  if (req.method == 'GET' || req.method == 'OPTIONS' || req.method == 'HEAD' || matchStar) {
+    next();
+  } else {
+    res.send(403);
+  }
+}
+
 var app = express();
 app.use(logger('short'));
+app.use('/api', accessFilter);
 app.use(bodyParser());
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/app', express.static(__dirname + '/app'));
 
-var apiVersion = '/v1';
 app.get('/api'+apiVersion+'/localisation/:key', function(req, res) {
   var cb = function(res, object) { res.json(object); }.bind(null, res);
   redis.get(req.params.key, function(err, val) {
