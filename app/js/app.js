@@ -12,5 +12,6 @@ angular.module('myApp', [
     config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/artists', {templateUrl: './partials/artists.html', controller: 'ArtistsListCtrl'});
         $routeProvider.when('/news', {templateUrl: './partials/news.html', controller: 'NewsListCtrl'});
-        $routeProvider.otherwise({redirectTo: '/news'});
+        $routeProvider.when('/home', {templateUrl: './partials/home.html', controller: 'HomeCtrl'});
+        $routeProvider.otherwise({redirectTo: '/home'});
     }]);
