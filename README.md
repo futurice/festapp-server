@@ -3,8 +3,11 @@ festapp-server
 
 [![Build Status](https://travis-ci.org/futurice/festapp-server.svg?branch=travis)](https://travis-ci.org/futurice/festapp-server)
 
-Install MongoDB and Redis.
-Install dependencies: `npm install`
+Festapp project page: http://futurice.github.io/festapp-server/
+
+* Install MongoDB and Redis.
+* Install dependencies: `npm install`
+* When developing locally: `node import-data.js`
 
 Run the project: `npm start`
 
