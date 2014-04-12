@@ -34,7 +34,9 @@
     "node": "0.10.x"
   },
   "dependencies": {
-    "express": ">= 3.5.0"
+    "express": ">= 3.5.0",
+    "mongoose": "^3.8.8",
+    "express-restify-mongoose": "^0.6.7"
   },
   "devDependencies": {
     "jshint": "~2.5.0",
@@ -42,6 +44,8 @@
     "protractor": "~0.17.0",
     "http-server": "^0.6.1",
     "bower": "^1.3.1",
-    "shelljs": "^0.2.6"
+    "shelljs": "^0.2.6",
+    "gulp": "^3.6.0",
+    "gulp-jshint": "^1.5.3"
   }
 }

@@ -10,7 +10,8 @@ var myAppServices = angular.module('myApp.services', ['ngResource']).value('vers
 
 myAppServices.factory('Artist', ['$resource',
     function($resource){
-        return $resource('../api/artists', {}, {
+        return $resource('../api/v1/artists', {}, {
             query: {method:'GET', params: {artistId:'artists'}, isArray:true}
         });
     }]);
+

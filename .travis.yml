@@ -1,5 +1,6 @@
 language: node_js
 node_js:
+<<<<<<< HEAD
   - 0.10
 
 before_script:
@@ -12,3 +13,6 @@ before_script:
 script:
   - node_modules/.bin/karma start test/karma.conf.js --no-auto-watch --single-run --reporters=dots --browsers=Firefox
   - node_modules/.bin/protractor test/protractor-conf.js --browser=firefox
+=======
+  - "0.10"
+>>>>>>> 9eea77e461d2ead3a895618c9a38c1199c094d7c
