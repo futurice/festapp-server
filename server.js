@@ -37,10 +37,12 @@ http.createServer(app).listen(port);
 console.log('Running at port '+port);
 
 
-app.get('/test', function(req, res) {
-	
-	lastfm.search('autistic fengshui sauna')
-	res.write("asdads")
-	res.end()
+app.get('/test/:artist?', function(req, res) {
+	var artist = req.params.artist
+	lastfm.search(artist, res)
+	//res.write("asdads")
+	//console.log(asd)
+	//res.write("asd")
+	//res.end()
 
   });
