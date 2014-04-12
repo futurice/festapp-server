@@ -164,6 +164,7 @@ Append `lang=<lang>` to the request, f.ex. `/api/v1/artists?lang=fi`
 * `GET /api/v1/localisation/:key` (`key` is of format <fieldname>-<value>-<lang>)
 * `POST /api/v1/localisation/` (Accepts JSON in the form `{ 'key' : <key>, 'val' : <value>}`)
 
+
 ### Instagram API
 Need environment variables for configuration
 
@@ -174,3 +175,18 @@ IGUSERID = Instagram userid used for search
 
 * `GET /api/instagram/tag`
 * `GET /api/instagram/user`
+
+
+### Weather API
+
+```
+Formula:
+GET http://localhost/api/v1/weather/:city/:ts?
+
+Examples:
+GET http://localhost/api/v1/weather/helsinki/1397317513
+GET http://localhost/api/v1/weather/helsinki
+
+Epoch time is optional, leaving it out gives weather for current time.
+```
+

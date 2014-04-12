@@ -43,7 +43,8 @@
     "after": "^0.8.1",
     "body-parser": "^1.0.1",
     "mongoose-unique-validator": "^0.3.0",
-    "request": "^2.34.0"
+    "request": "^2.34.0",
+    "memory-cache": "0.0.5"
   },
   "devDependencies": {
     "gulp": "^3.6.0",
