@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var uniqueValidator = require('mongoose-unique-validator');
 
 var ArtistSchema = new Schema({
-  name: { type: String, default: '' },
+  name: { type: String, default: '', unique: true },
   picture: String,
   quote: String,
   content: String,
@@ -21,5 +22,7 @@ var ArtistSchema = new Schema({
   credits: String,
   place: Number
 });
+
+ArtistSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('Artist', ArtistSchema);
