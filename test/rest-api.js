@@ -1,4 +1,3 @@
-var assert = require('assert');
 var app = require('../server');
 var request = require('supertest');
 
@@ -9,7 +8,7 @@ describe('GET artists', function(){
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done);
-  })
+  });
 });
 describe('GET festival', function(){
   it('does stuff', function(done){
@@ -18,7 +17,7 @@ describe('GET festival', function(){
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done);
-  })
+  });
 });
 describe('GET events', function(){
   it('does stuff', function(done){
@@ -27,7 +26,7 @@ describe('GET events', function(){
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done);
-  })
+  });
 });
 describe('GET locations', function(){
   it('does stuff', function(done){
@@ -36,7 +35,7 @@ describe('GET locations', function(){
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done);
-  })
+  });
 });
 describe('GET news', function(){
   it('does stuff', function(done){
@@ -45,7 +44,7 @@ describe('GET news', function(){
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done);
-  })
+  });
 });
 describe('GET info', function(){
   it('does stuff', function(done){
@@ -54,5 +53,5 @@ describe('GET info', function(){
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done);
-  })
+  });
 });
