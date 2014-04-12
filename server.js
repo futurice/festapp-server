@@ -96,7 +96,8 @@ app.post('/api' + apiVersion + '/events/:event_id/star', function(req, res) {
 
 restify.defaults({
    outputFn: Localise.localiseApiCallResult,
-   version: apiVersion
+   version: apiVersion,
+   private: '__v'
 });
 
 restify.serve(app, Artist);
