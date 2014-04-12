@@ -10,7 +10,8 @@ var middleware = function(req, res) {
 var instagram = require('./lib/instagram');
 
 var app = express()
-  .use('/api/instagram', instagram.tagMedia)
+  .use('/api/instagram/tag', instagram.tagMedia)
+  .use('/api/instagram/user', instagram.userMedia)
   .use('/api', middleware)
   .use('/public', express.static(__dirname + '/public'));
 
