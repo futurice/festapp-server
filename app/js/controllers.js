@@ -17,19 +17,23 @@ myAppControllers.
       $scope.artist = artist;
     });
 
+
+    $scope.saveArtist = function(){
+        console.log("save");
+      Artist.update({ artistId:$scope.artist._id},$scope.artist);
+    }
+
+
     $scope.schema = [];
 
-    $http.get("../public/models/artist.json").success(function (data) {
+    $http.get("/api/v1/schema/artist").success(function (data) {
         Object.getOwnPropertyNames(data).forEach(function (name) {
             var type = (data[name].type) || data[name]
             $scope.schema.push({"name" : name, "type" : type})
         });
     });
 
-    $scope.saveArtist = function(){
-        console.log("save");
-      Artist.update({ artistId:$scope.artist._id},$scope.artist);
-    }
+
   }]);
 
 myAppControllers.
@@ -49,6 +53,15 @@ myAppControllers.
     $scope.saveEvent = function(){
       Event.update({ eventId:$scope.event._id},$scope.event);
     }
+
+    $scope.schema = [];
+
+    $http.get("/api/v1/schema/event").success(function (data) {
+        Object.getOwnPropertyNames(data).forEach(function (name) {
+            var type = (data[name].type) || data[name]
+            $scope.schema.push({"name" : name, "type" : type})
+        });
+    });
   }]);
 
 myAppControllers.
@@ -68,6 +81,15 @@ myAppControllers.
     $scope.saveNews = function(){
       News.update({ newsId:$scope.news._id},$scope.news);
     }
+
+    $scope.schema = [];
+
+    $http.get("/api/v1/schema/news").success(function (data) {
+        Object.getOwnPropertyNames(data).forEach(function (name) {
+            var type = (data[name].type) || data[name]
+            $scope.schema.push({"name" : name, "type" : type})
+        });
+    });
   }]);
 
 myAppControllers.
@@ -87,6 +109,15 @@ myAppControllers.
     $scope.saveLocation = function(){
       Location.update({ locationId:$scope.location._id},$scope.location);
     }
+
+    $scope.schema = [];
+
+    $http.get("/api/v1/schema/location").success(function (data) {
+        Object.getOwnPropertyNames(data).forEach(function (name) {
+            var type = (data[name].type) || data[name]
+            $scope.schema.push({"name" : name, "type" : type})
+        });
+    });
   }]);
 
 myAppControllers.
@@ -106,6 +137,15 @@ myAppControllers.
     $scope.saveInfo = function(){
       Info.update({ infoId:$scope.info._id},$scope.info);
     }
+
+    $scope.schema = [];
+
+    $http.get("/api/v1/schema/info").success(function (data) {
+        Object.getOwnPropertyNames(data).forEach(function (name) {
+            var type = (data[name].type) || data[name]
+            $scope.schema.push({"name" : name, "type" : type})
+        });
+    });
   }]);
 
 myAppControllers.
@@ -122,6 +162,16 @@ myAppControllers.
     $scope.saveInfo = function(){
       Festival.update({ festivalId:$scope.festival._id},$scope.festival);
     }
+
+
+    $scope.schema = [];
+
+    $http.get("/api/v1/schema/festival").success(function (data) {
+        Object.getOwnPropertyNames(data).forEach(function (name) {
+            var type = (data[name].type) || data[name]
+            $scope.schema.push({"name" : name, "type" : type})
+        });
+    });
   }]);
 
 myAppControllers.
