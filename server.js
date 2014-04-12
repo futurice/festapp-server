@@ -50,7 +50,7 @@ restify.defaults({
     }
   }
 });
-app.get('/api/v1/localization/:key', function(req, res) {
+app.get('/api/v1/localisation/:key', function(req, res) {
   var cb = function(res, object) { res.send(object); }.bind(null, res);
   redis.get(req.params.key, function(err, val) {
     if (err) {
@@ -61,11 +61,11 @@ app.get('/api/v1/localization/:key', function(req, res) {
   });
 });
 
-app.post('/api/v1/localization', function(req, res) {
+app.post('/api/v1/localisation', function(req, res) {
   console.log(req.body);
   redis.set(req.body.key, req.body.val);
   res.status(200);
-  res.json({message: 'Success'});
+  res.json({success: 'Localisation added'});
 });
 
 restify.serve(app, Artist);
@@ -85,9 +85,9 @@ function localizeStrings(lang, cb, object) {
 }
 
 function localizeObjectField(object, next, lang, key) {
-  redis.get([key,object._id,lang].join('-'), function(err, reply) {
+  redis.get([key, lang].join('-'), function(err, reply) {
     if(err) {
-      console.error('Error while accessing redis with key: ' + [key,object._id,lang].join('-'));
+      console.error('Error while accessing redis with key: ' + [key, lang].join('-'));
     } else if(reply) {
       object[key] = reply;
     }
