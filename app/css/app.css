@@ -2,9 +2,10 @@
 
 .menu {
   list-style: none;
-  border-bottom: 0.1em solid black;
+/*  border-bottom: 0.1em solid black;*/
   margin-bottom: 2em;
   padding: 1em;
+  background-color: #06121F;
 }
 
 .menu > li {
