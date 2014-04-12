@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/futurice/festapp-server",
   "engines": {
-    "npm": ">=1.3.7"
+    "npm": ">=1.3.7",
     "node": ">= 0.10.26"
   },
   "dependencies": {
