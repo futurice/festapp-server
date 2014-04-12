@@ -1,10 +1,9 @@
 'use strict';
 
 /* Controllers */
-angular.module('myApp.controllers', []).
-    controller('ArtistsListCtrl', function ($scope, $http) {
-        $http.get('../api/artists').success(function(data) {
-            $scope.artists = data;
-        });
+var myAppControllers = angular.module('myApp.controllers', []);
 
-    });
+myAppControllers.
+    controller('ArtistsListCtrl', ['$scope', 'Artist', function ($scope, Artist) {
+            $scope.artists = Artist.query();
+    }]);
