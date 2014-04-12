@@ -4,7 +4,7 @@
   "description": "Basic mockup server for festapp",
   "main": "server.js",
   "scripts": {
-    "test": "gulp lint",
+    "test": "mocha",
     "start": "node server.js"
   },
   "repository": {
@@ -50,6 +50,8 @@
   "devDependencies": {
     "gulp": "^3.6.0",
     "gulp-jshint": "^1.5.3",
-    "gulp-nodemon": "^1.0.2"
+    "gulp-nodemon": "^1.0.2",
+    "supertest": "^0.10.0",
+    "mocha": "^1.18.2"
   }
 }
