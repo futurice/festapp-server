@@ -4,19 +4,12 @@
   list-style: none;
   border-bottom: 0.1em solid black;
   margin-bottom: 2em;
-  padding: 0 0 0.5em;
-}
-
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
+  padding: 1em;
 }
 
 .menu > li {
   display: inline;
+    font-size: 2em;
 }
 
 .menu > li:before {
@@ -31,4 +24,22 @@
 
 input[type="text"] {
     width: 500px;
+}
+
+.artist {
+    padding: 20px;
+}
+
+.artist img {
+    width: 100px;
+    height: 100px;
+}
+
+.artistPick {
+    padding: 20px;
+}
+
+.artistPick img {
+    width: 100px;
+    height: 100px;
 }

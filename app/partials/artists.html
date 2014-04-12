@@ -1,6 +1,6 @@
 <ul>
-    <li ng-repeat="artist in artists">
-        <img src="../public/{{artist.picture}}" alt=""/>
+    <li ng-repeat="artist in artists" class="artistPick">
+        <img src="../{{artist.picture}}" alt=""/>
         <a href="#/artist/{{artist._id}}">{{artist.name}}</a>
     </li>
 </ul>

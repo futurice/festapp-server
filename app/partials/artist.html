@@ -1,4 +1,6 @@
+<div class="artist" >
 <h3>{{artist.name}}</h3>
+<img src="../{{artist.picture}}" alt=""/> <br/>
 <form>
     <table ng-repeat="field in fields">
         <tr><td>{{field.name}}, type {{field.type}}</td><td><input type="text" ng-model=artist[field.name] /></td></tr>
@@ -6,6 +8,7 @@
     <input type="submit" value="Submit da shit" ng-click="saveArtist()"/>
 </form>
 
+</div>
 <!--
 
 <tr><td>id</td><td><input type="text" ng-model=artist.id /></td></tr>
