@@ -25,7 +25,7 @@ Base URL is `/api/v1/`.
     "featured": false,
     "status": "show",
     "location": "niitty",
-    "founded": "2012",
+    "founded": 2012,
     "genre": ["Love Metal"],
     "highlights": ["Bad Finance rocked the place at Futurice Christmas Party 2012."],
     "youtube": "https://www.youtube.com/watch?v=xRKzk0tKchE",
