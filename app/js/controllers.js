@@ -27,6 +27,7 @@ myAppControllers.
     });
 
     $scope.saveArtist = function(){
+        console.log("save");
       Artist.update({ artistId:$scope.artist._id},$scope.artist);
     }
   }]);
