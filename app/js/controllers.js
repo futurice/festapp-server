@@ -17,12 +17,10 @@ myAppControllers.
       $scope.artist = artist;
     });
 
-
     $scope.saveArtist = function(){
         console.log("save");
       Artist.update({ artistId:$scope.artist._id},$scope.artist);
     }
-
 
     $scope.schema = [];
 
@@ -32,7 +30,6 @@ myAppControllers.
             $scope.schema.push({"name" : name, "type" : type})
         });
     });
-
 
   }]);
 
@@ -44,80 +41,87 @@ myAppControllers.
     }]);
 
 myAppControllers.
-  controller('EventCtrl', ['$scope', '$routeParams', '$location', 'Event', function ($scope, $routeParams, $location, Event) {
+  controller('EventCtrl', ['$scope', '$routeParams', '$location', 'Event', '$http', function ($scope, $routeParams, $location, Event, $http) {
 
     Event.get({eventId: $routeParams.eventId}, function(event) {
       $scope.event = event;
     });
-    
+
     $scope.saveEvent = function(){
+      console.log("save");
       Event.update({ eventId:$scope.event._id},$scope.event);
     }
 
     $scope.schema = [];
 
     $http.get("/api/v1/schema/event").success(function (data) {
-        Object.getOwnPropertyNames(data).forEach(function (name) {
-            var type = (data[name].type) || data[name]
-            $scope.schema.push({"name" : name, "type" : type})
-        });
+      Object.getOwnPropertyNames(data).forEach(function (name) {
+        var type = (data[name].type) || data[name]
+        $scope.schema.push({"name" : name, "type" : type})
+      });
     });
+
   }]);
 
 myAppControllers.
     controller('NewsListCtrl', ['$scope', 'News', function($scope, News) {
       News.query(function(response){
-        $scope.newss = response;
+        $scope.news = response;
       });
     }]);
 
 myAppControllers.
-  controller('NewsCtrl', ['$scope', '$routeParams', '$location', 'News', function ($scope, $routeParams, $location, News) {
+  controller('NewsCtrl', ['$scope', '$routeParams', '$location', 'News', '$http', function ($scope, $routeParams, $location, News, $http) {
 
-    News.get({newsId: $routeParams.newsId}, function(news) {
-      $scope.news = news;
+    News.get({newsItemId: $routeParams.newsItemId}, function(news) {
+      $scope.newsItem = news;
     });
 
     $scope.saveNews = function(){
-      News.update({ newsId:$scope.news._id},$scope.news);
+      console.log("save");
+      News.update({ newsItemId:$scope.newsItem._id},$scope.newsItem);
     }
 
     $scope.schema = [];
 
     $http.get("/api/v1/schema/news").success(function (data) {
-        Object.getOwnPropertyNames(data).forEach(function (name) {
-            var type = (data[name].type) || data[name]
-            $scope.schema.push({"name" : name, "type" : type})
-        });
+      Object.getOwnPropertyNames(data).forEach(function (name) {
+        var type = (data[name].type) || data[name]
+        $scope.schema.push({"name" : name, "type" : type})
+      });
     });
+
   }]);
 
 myAppControllers.
-    controller('LocationsListCtrl', ['$scope', 'Locations',function($scope, Locations) {
-      Locations.query(function(response){
+    controller('LocationsListCtrl', ['$scope', 'Location',function($scope, Location) {
+      Location.query(function(response){
         $scope.locations = response;
       });
     }]);
 
 myAppControllers.
-  controller('LocationCtrl', ['$scope', '$routeParams', '$location', 'Location', function ($scope, $routeParams, $location, Location) {
+  controller('LocationCtrl', ['$scope', '$routeParams', '$location', 'Location', '$http', function ($scope, $routeParams, $location, Location, $http) {
 
-    Locations.get({locationId: $routeParams.locationId}, function(location) {
+    Location.get({locationId: $routeParams.locationId}, function(location) {
       $scope.location = location;
     });
 
     $scope.saveLocation = function(){
+      console.log("save");
       Location.update({ locationId:$scope.location._id},$scope.location);
     }
+
 
     $scope.schema = [];
 
     $http.get("/api/v1/schema/location").success(function (data) {
-        Object.getOwnPropertyNames(data).forEach(function (name) {
-            var type = (data[name].type) || data[name]
-            $scope.schema.push({"name" : name, "type" : type})
-        });
+      Object.getOwnPropertyNames(data).forEach(function (name) {
+        var type = (data[name].type) || data[name]
+        $scope.schema.push({"name" : name, "type" : type})
+      });
     });
+
   }]);
 
 myAppControllers.
@@ -128,28 +132,30 @@ myAppControllers.
     }]);
 
 myAppControllers.
-  controller('InfoCtrl', ['$scope', '$routeParams', '$location', 'Info', function ($scope, $routeParams, $location, Info) {
+  controller('InfoCtrl', ['$scope', '$routeParams', '$location', 'Info', '$http', function ($scope, $routeParams, $location, Info, $http) {
 
-    Info.get({infoId: $routeParams.infoId}, function(info) {
-      $scope.info = info;
+    Info.get({infoItemId: $routeParams.infoItemId}, function(info) {
+      $scope.infoItem = info;
     });
 
     $scope.saveInfo = function(){
-      Info.update({ infoId:$scope.info._id},$scope.info);
+      console.log("save");
+      Info.update({ infoItemId:$scope.infoItem._id},$scope.infoItem);
     }
 
     $scope.schema = [];
 
     $http.get("/api/v1/schema/info").success(function (data) {
-        Object.getOwnPropertyNames(data).forEach(function (name) {
-            var type = (data[name].type) || data[name]
-            $scope.schema.push({"name" : name, "type" : type})
-        });
+      Object.getOwnPropertyNames(data).forEach(function (name) {
+        var type = (data[name].type) || data[name]
+        $scope.schema.push({"name" : name, "type" : type})
+      });
     });
+
   }]);
 
 myAppControllers.
-  controller('FestivalCtrl', ['$scope', '$routeParams', '$location', 'Festival', function ($scope, $routeParams, $location, Festival) {
+  controller('FestivalCtrl', ['$scope', '$routeParams', '$location', 'Festival', '$http', function ($scope, $routeParams, $location, Festival, $http) {
 
     Festival.query(function(response){
       $scope.festival = response[0];

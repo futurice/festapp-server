@@ -1,30 +1,29 @@
-<h3>{{event.name}}</h3>
-<!--<p>{{event.content }}</p>-->
-<form>
-    <table>
-        <tr><td>id</td><td><input type="text" ng-model=event.id /></td></tr>
-        <tr><td>name</td><td><input type="text" ng-model=event.name /></td></tr>
-        <tr><td>picture</td><td><input type="text" ng-model=event.picture /></td></tr>
-        <tr><td>quote</td><td><input type="text" ng-model=event.quote /></td></tr>
-        <tr><td>content</td><td><input type="text" ng-model=event.content /></td></tr>
-        <tr><td>featured</td><td><input type="text" ng-model=event.featured /></td></tr>
-        <tr><td>status</td><td><input type="text" ng-model=event.status /></td></tr>
-        <tr><td>stage</td><td><input type="text" ng-model=event.stage /></td></tr>
-        <tr><td>day</td><td><input type="text" ng-model=event.day /></td></tr>
-        <tr><td>time_start</td><td><input type="text" ng-model=event.time_start /></td></tr>
-        <tr><td>time_stop</td><td><input type="text" ng-model=event.time_stop /></td></tr>
-        <tr><td>founded</td><td><input type="text" ng-model=event.founded /></td></tr>
-        <tr><td>genre</td><td><input type="text" ng-model=event.genre /></td></tr>
-        <tr><td>members</td><td><input type="text" ng-model=event.members /></td></tr>
-        <tr><td>albums</td><td><input type="text" ng-model=event.albums /></td></tr>
-        <tr><td>highlights</td><td><input type="text" ng-model=event.highlights /></td></tr>
-        <tr><td>youtube</td><td><input type="text" ng-model=event.youtube /></td></tr>
-        <tr><td>spotify</td><td><input type="text" ng-model=event.spotify /></td></tr>
-        <tr><td>contact_info</td><td><input type="text" ng-model=event.contact_info /></td></tr>
-        <tr><td>press_image</td><td><input type="text" ng-model=event.press_image /></td></tr>
-        <tr><td>credits</td><td><input type="text" ng-model=event.credits /></td></tr>
-        <tr><td>place</td><td><input type="text" ng-model=event.place /></td></tr>
-    </table>
-    <input type="submit" value="Submit da shit" ng-click="saveEvent()"/>
-    <!--<p>{{Event}}</p>-->
-</form>
+<div class="event" >
+    <h3>{{event.title}}</h3>
+    <form>
+        <div ng-repeat="field in schema">
+            <div ng-switch on="field.type">
+                <div ng-switch-when="String">
+                    <input type="text" ng-model=event[field.name] /> {{field.name}}
+                </div>
+                <div ng-switch-when="Date">
+                    <div class="input-append date" onload="$(this).datetimepicker({language: 'pt-BR'});">
+                        <input data-format="dd/MM/yyyy hh:mm:ss" type="text" ng-model=event[field.name] />
+                    <span class="add-on">
+                      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                      </i>
+                    </span>
+                    </div>
+                </div>
+                <div ng-switch-default>
+                    <input type="text" ng-model=event[field.name] /> {{field.name}}
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form>
+        <input type="submit" value="Submit da shit" ng-click="saveEvent()"/>
+    </form>
+    {{event}}
+</div>

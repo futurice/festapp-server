@@ -1,5 +1,6 @@
 <ul>
-    <li ng-repeat="infoItem in info">
+    <button value="Create new">Create New</button>
+    <li ng-repeat="infoItem in infos" class="infoPick">
         <a href="#/infoItem/{{infoItem._id}}">{{infoItem.title}}</a>
     </li>
 </ul>

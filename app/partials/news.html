@@ -1,5 +1,7 @@
 <ul>
-    <li ng-repeat="newsItem in news">
+
+    <button value="Create new">Create New</button>
+    <li ng-repeat="newsItem in news" class="newsPick">
         <a href="#/newsItem/{{newsItem._id}}">{{newsItem.title}}</a>
     </li>
 </ul>

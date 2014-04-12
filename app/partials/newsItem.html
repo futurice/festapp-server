@@ -1,30 +1,27 @@
-<h3>{{newsItem.name}}</h3>
-<!--<p>{{newsItem.content }}</p>-->
+<h3>{{newsItem.title}}</h3>
+
 <form>
-    <table>
-        <tr><td>id</td><td><input type="text" ng-model=newsitem.id /></td></tr>
-        <tr><td>name</td><td><input type="text" ng-model=newsitem.name /></td></tr>
-        <tr><td>picture</td><td><input type="text" ng-model=newsitem.picture /></td></tr>
-        <tr><td>quote</td><td><input type="text" ng-model=newsitem.quote /></td></tr>
-        <tr><td>content</td><td><input type="text" ng-model=newsitem.content /></td></tr>
-        <tr><td>featured</td><td><input type="text" ng-model=newsitem.featured /></td></tr>
-        <tr><td>status</td><td><input type="text" ng-model=newsitem.status /></td></tr>
-        <tr><td>stage</td><td><input type="text" ng-model=newsitem.stage /></td></tr>
-        <tr><td>day</td><td><input type="text" ng-model=newsitem.day /></td></tr>
-        <tr><td>time_start</td><td><input type="text" ng-model=newsitem.time_start /></td></tr>
-        <tr><td>time_stop</td><td><input type="text" ng-model=newsitem.time_stop /></td></tr>
-        <tr><td>founded</td><td><input type="text" ng-model=newsitem.founded /></td></tr>
-        <tr><td>genre</td><td><input type="text" ng-model=newsitem.genre /></td></tr>
-        <tr><td>members</td><td><input type="text" ng-model=newsitem.members /></td></tr>
-        <tr><td>albums</td><td><input type="text" ng-model=newsitem.albums /></td></tr>
-        <tr><td>highlights</td><td><input type="text" ng-model=newsitem.highlights /></td></tr>
-        <tr><td>youtube</td><td><input type="text" ng-model=newsitem.youtube /></td></tr>
-        <tr><td>spotify</td><td><input type="text" ng-model=newsitem.spotify /></td></tr>
-        <tr><td>contact_info</td><td><input type="text" ng-model=newsitem.contact_info /></td></tr>
-        <tr><td>press_image</td><td><input type="text" ng-model=newsitem.press_image /></td></tr>
-        <tr><td>credits</td><td><input type="text" ng-model=newsitem.credits /></td></tr>
-        <tr><td>place</td><td><input type="text" ng-model=newsitem.place /></td></tr>
-    </table>
-    <input type="submit" value="Submit da shit" ng-click="saveNewsItem()"/>
-    <!--<p>{{newsItem}}</p>-->
+    <div ng-repeat="field in schema">
+        <div ng-switch on="field.type">
+            <div ng-switch-when="String">
+                <input type="text" ng-model=newsItem[field.name] /> {{field.name}}
+            </div>
+            <div ng-switch-when="Date">
+                <div class="input-append date" onload="$(this).datetimepicker({language: 'pt-BR'});">
+                    <input data-format="dd/MM/yyyy hh:mm:ss" type="text" ng-model=newsItem[field.name] />
+                    <span class="add-on">
+                      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                      </i>
+                    </span>
+                </div>
+            </div>
+            <div ng-switch-default>
+                <input type="text" ng-model=newsItem[field.name] /> {{field.name}}
+            </div>
+        </div>
+    </div>
+</form>
+
+<form>
+    <input type="submit" value="Submit da shit" ng-click="saveNews()"/>
 </form>

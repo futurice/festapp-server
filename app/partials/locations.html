@@ -1,5 +1,6 @@
 <ul>
-    <li ng-repeat="location in locations">
-        <a href="#/location/{{location._id}}">{{location.title}}</a>
+    <button value="Create new">Create New</button>
+    <li ng-repeat="location in locations" class="locationPick">
+        <a href="#/location/{{location._id}}">{{location.name}}</a>
     </li>
 </ul>

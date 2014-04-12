@@ -15,7 +15,7 @@ angular.module('myApp', [
         $routeProvider.when('/events', {templateUrl: './partials/events.html', controller: 'EventsListCtrl'});
         $routeProvider.when('/event/:eventId', {templateUrl: './partials/event.html', controller: 'EventCtrl'});
         $routeProvider.when('/news', {templateUrl: './partials/news.html', controller: 'NewsListCtrl'});
-        $routeProvider.when('/newsItem/:newsItemId', {templateUrl: './partials/newsItem.html', controller: 'NewsListCtrl'});
+        $routeProvider.when('/newsItem/:newsItemId', {templateUrl: './partials/newsItem.html', controller: 'NewsCtrl'});
         $routeProvider.when('/home', {templateUrl: './partials/home.html', controller: 'HomeCtrl'});
         $routeProvider.when('/festival', {templateUrl: './partials/festival.html', controller: 'FestivalCtrl'});
         $routeProvider.when('/info', {templateUrl: './partials/info.html', controller: 'InfoListCtrl'});

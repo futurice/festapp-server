@@ -1,30 +1,29 @@
-<h3>{{location.name}}</h3>
-<!--<p>{{location.content }}</p>-->
-<form>
-    <table>
-        <tr><td>id</td><td><input type="text" ng-model=location.id /></td></tr>
-        <tr><td>name</td><td><input type="text" ng-model=location.name /></td></tr>
-        <tr><td>picture</td><td><input type="text" ng-model=location.picture /></td></tr>
-        <tr><td>quote</td><td><input type="text" ng-model=location.quote /></td></tr>
-        <tr><td>content</td><td><input type="text" ng-model=location.content /></td></tr>
-        <tr><td>featured</td><td><input type="text" ng-model=location.featured /></td></tr>
-        <tr><td>status</td><td><input type="text" ng-model=location.status /></td></tr>
-        <tr><td>stage</td><td><input type="text" ng-model=location.stage /></td></tr>
-        <tr><td>day</td><td><input type="text" ng-model=location.day /></td></tr>
-        <tr><td>time_start</td><td><input type="text" ng-model=location.time_start /></td></tr>
-        <tr><td>time_stop</td><td><input type="text" ng-model=location.time_stop /></td></tr>
-        <tr><td>founded</td><td><input type="text" ng-model=location.founded /></td></tr>
-        <tr><td>genre</td><td><input type="text" ng-model=location.genre /></td></tr>
-        <tr><td>members</td><td><input type="text" ng-model=location.members /></td></tr>
-        <tr><td>albums</td><td><input type="text" ng-model=location.albums /></td></tr>
-        <tr><td>highlights</td><td><input type="text" ng-model=location.highlights /></td></tr>
-        <tr><td>youtube</td><td><input type="text" ng-model=location.youtube /></td></tr>
-        <tr><td>spotify</td><td><input type="text" ng-model=location.spotify /></td></tr>
-        <tr><td>contact_info</td><td><input type="text" ng-model=location.contact_info /></td></tr>
-        <tr><td>press_image</td><td><input type="text" ng-model=location.press_image /></td></tr>
-        <tr><td>credits</td><td><input type="text" ng-model=location.credits /></td></tr>
-        <tr><td>place</td><td><input type="text" ng-model=location.place /></td></tr>
-    </table>
-    <input type="submit" value="Submit da shit" ng-click="saveLocation()"/>
-    <!--<p>{{location}}</p>-->
-</form>
+<div class="location" >
+    <h3>{{location.name}}</h3>
+    <form>
+        <div ng-repeat="field in schema">
+            <div ng-switch on="field.type">
+                <div ng-switch-when="String">
+                    <input type="text" ng-model=location[field.name] /> {{field.name}}
+                </div>
+                <div ng-switch-when="Date">
+                    <div class="input-append date" onload="$(this).datetimepicker({language: 'pt-BR'});">
+                        <input data-format="dd/MM/yyyy hh:mm:ss" type="text" ng-model=location[field.name] />
+                    <span class="add-on">
+                      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                      </i>
+                    </span>
+                    </div>
+                </div>
+                <div ng-switch-default>
+                    <input type="text" ng-model=location[field.name] /> {{field.name}}
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form>
+        <input type="submit" value="Submit da shit" ng-click="saveLocation()"/>
+    </form>
+    {{location}}
+</div>
