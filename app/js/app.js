@@ -14,5 +14,8 @@ angular.module('myApp', [
         $routeProvider.when('/events', {templateUrl: './partials/events.html', controller: 'EventsListCtrl'});
         $routeProvider.when('/news', {templateUrl: './partials/news.html', controller: 'NewsListCtrl'});
         $routeProvider.when('/home', {templateUrl: './partials/home.html', controller: 'HomeCtrl'});
+        $routeProvider.when('/festival', {templateUrl: './partials/festival.html', controller: 'FestivalCtrl'});
+        $routeProvider.when('/info', {templateUrl: './partials/info.html', controller: 'InfoListCtrl'});
+        $routeProvider.when('/locations', {templateUrl: './partials/locations.html', controller: 'LocationsListCtrl'});
         $routeProvider.otherwise({redirectTo: '/home'});
     }]);
