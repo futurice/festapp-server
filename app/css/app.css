@@ -26,6 +26,11 @@ input[type="text"] {
     width: 500px;
 }
 
+.contentWrapper {
+    padding: 20px;
+}
+
+
 .artist {
     padding: 20px;
 }
