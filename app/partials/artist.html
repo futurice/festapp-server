@@ -16,6 +16,18 @@
                     </span>
                 </div>
             </div>
+            <div ng-switch-when="Boolean">
+                <input type="checkbox" ng-model="artist[field.name]"> {{field.name}}
+            </div>
+            <div ng-switch-when="Number">
+                <input type="number" ng-model="artist[field.name]"> {{field.name}}
+            </div>
+            <div ng-switch-when="[String]">
+                <ng ng-repeat="i in artist[field.name] track by $index">
+                    <input ng-model=artist[field.name][$index] /> <input type="button" value="-" ng-click="artist[field.name].splice($index,1)" />
+                </ng>
+                <input type="button" value="+" ng-click="artist[field.name].push('')">{{field.name}}
+            </div>
             <div ng-switch-default>
                  <input type="text" ng-model=artist[field.name] /> {{field.name}}
             </div>
