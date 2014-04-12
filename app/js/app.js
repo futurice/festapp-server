@@ -11,7 +11,7 @@ angular.module('myApp', [
 ]).
     config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/artists', {templateUrl: './partials/artists.html', controller: 'ArtistsListCtrl'});
-        $routeProvider.when('/artist/:artistId', {templateUrl: './partials/artist.html', controller: 'ArtistsListCtrl'});
+        $routeProvider.when('/artist/:artistId', {templateUrl: './partials/artist.html', controller: 'ArtistCtrl'});
         $routeProvider.when('/events', {templateUrl: './partials/events.html', controller: 'EventsListCtrl'});
         $routeProvider.when('/event/:eventId', {templateUrl: './partials/event.html', controller: 'EventsListCtrl'});
         $routeProvider.when('/news', {templateUrl: './partials/news.html', controller: 'NewsListCtrl'});
