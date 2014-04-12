@@ -44,6 +44,6 @@ http://localhost:8080/public/arrival.html
 Append `lang=<lang>` to the request, f.ex. `/api/v1/artists?lang=fi`
 
 ### Localisation API
-* `GET /api/v1/localisation/:key` (`key` is of format <fieldname>-<lang>)
+* `GET /api/v1/localisation/:key` (`key` is of format <fieldname>-<value>-<lang>)
 * `POST /api/v1/localisation/` (Accepts JSON in the form `{ 'key' : <key>, 'val' : <value>}`)
 
