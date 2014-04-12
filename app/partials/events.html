@@ -1,6 +1,5 @@
 <ul>
-    <li ng-repeat="aevent in events">
-        <h3>{{event.name}}</h3>
-        {{event.content}}
+    <li ng-repeat="event in events">
+        <a href="#/event/{{event._id}}">{{event.title}}</a>
     </li>
 </ul>

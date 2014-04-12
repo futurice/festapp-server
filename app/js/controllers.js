@@ -8,7 +8,7 @@ myAppControllers.
             $scope.data = {};
 
             Artist.query(function(response){
-              $scope.data.artists = response;
+              $scope.artists = response;
             });
 
             $scope.artist = {
@@ -56,17 +56,17 @@ myAppControllers.
 
 myAppControllers.
     controller('NewsListCtrl', ['$scope', 'News', function($scope, News) {
-        $scope.news = News.query();
+        $scope.news = query();
     }]);
 
 myAppControllers.
     controller('LocationsListCtrl', ['$scope', 'Locations',function($scope, Locations) {
-        $scope.locations = Locations.query();
+        $scope.locations = query();
     }]);
 
 myAppControllers.
     controller('InfoListCtrl', ['$scope', 'Info', function($scope, Info) {
-        $scope.info = Info.query();
+        $scope.info = query();
     }]);
 
 myAppControllers.

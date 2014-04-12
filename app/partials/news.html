@@ -1,6 +1,5 @@
 <ul>
     <li ng-repeat="newsItem in news">
-        <p>{{newsItem.title}}</p>
-        {{newsItem.content}}
+        <a href="#/newsItem/{{newsItem._id}}">{{newsItem.title}}</a>
     </li>
 </ul>

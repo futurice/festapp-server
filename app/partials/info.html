@@ -1,6 +1,5 @@
 <ul>
-    <li ng-repeat="artist in artists">
-        <h3>{{artist.name}}</h3>
-        {{artist.content}}
+    <li ng-repeat="infoItem in info">
+        <a href="#/infoItem/{{infoItem._id}}">{{infoItem.title}}</a>
     </li>
 </ul>
