@@ -37,10 +37,23 @@ function accessFilter(req, res, next) {
   }
 }
 
+var twitter = require('./lib/twitter');
+var twatter = new twitter.twitter(process.env.TWITTER_API_KEY, process.env.TWITTER_SECRET);
+twatter.authenticate(function(success) {
+  if (!success) {
+    console.error("Authentication failed");
+  }
+})
+
+
 var app = express();
 app.use(logger('short'));
 app.use('/api', accessFilter);
 app.use(bodyParser());
+app.use('/api/twitter/search/:search/:count?',  twitter.twitter.createHandler(twatter, 'search'))
+  .use('/api/twitter/user/:userSearch/:count?', twitter.twitter.createHandler(twatter, 'userSearch'))
+  .use('/api/twitter/hashtag/:hashtag/:count?', twitter.twitter.createHandler(twatter, 'hashtag'))
+
 app.use('/public', express.static(__dirname + '/public'));
 
 app.get('/api'+apiVersion+'/localisation/:key', function(req, res) {
@@ -110,6 +123,7 @@ var instagram = require('./lib/instagram');
 
 app.use('/api/instagram/tag', instagram.tagMedia)
    .use('/api/instagram/user', instagram.userMedia);
+
 
 var port = Number(process.env.PORT || 8080);
 http.createServer(app).listen(port);

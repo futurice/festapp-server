@@ -42,7 +42,8 @@
     "redis-url": "^0.2.0",
     "after": "^0.8.1",
     "body-parser": "^1.0.1",
-    "mongoose-unique-validator": "^0.3.0"
+    "mongoose-unique-validator": "^0.3.0",
+    "request": "^2.34.0"
   },
   "devDependencies": {
     "gulp": "^3.6.0",
