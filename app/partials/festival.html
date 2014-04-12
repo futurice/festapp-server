@@ -1,8 +1,11 @@
-<h3>{{festival.name}}</h3>
+<h1>{{festival.name}}</h1>
 <!--<p>{{festival.content }}</p>-->
+
+        <h3>Basic information for your festival</h3>
+        <br/>
 <form>
     <table>
-        <tr><td>id</td><td><input type="text" ng-model=festival.id /></td></tr>
+        <tr><td>id</td><td><input type="text" ng-model=festival._id /></td></tr>
         <tr><td>name</td><td><input type="text" ng-model=festival.name /></td></tr>
         <tr><td>picture</td><td><input type="text" ng-model=festival.picture /></td></tr>
         <tr><td>quote</td><td><input type="text" ng-model=festival.quote /></td></tr>
@@ -25,6 +28,6 @@
         <tr><td>credits</td><td><input type="text" ng-model=festival.credits /></td></tr>
         <tr><td>place</td><td><input type="text" ng-model=festival.place /></td></tr>
     </table>
-    <input type="submit" value="Submit da shit" ng-click="savefestival()"/>
+    <input type="submit" value="Submit da shit" ng-click="saveFestival()"/>
     <!--<p>{{festival}}</p>-->
 </form>
