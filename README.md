@@ -23,7 +23,7 @@ Base URL is `/api/v1/`.
     "quote": "”Having fun! Everyone altogether, let's rock!”",
     "content": "<p>\r\nBAD finance was formed in the early 2011 by three guys, Sakari, Antti and Jari, all working at Futurice Tampere. The band started reheasing at Jari's student dorm in Hervanta but after Futurice office moved into bigger premises the boys got their own band room.</p>\r\n",
     "featured": false,
-    "status": true,
+    "status": "show",
     "location": "niitty",
     "founded": "2012",
     "genre": ["Love Metal"],
@@ -73,7 +73,7 @@ Base URL is `/api/v1/`.
     "teaser_text": "This is a teaser text for the news article.",
     "content": "<p>This is the content of the article, HTML formatted to your liking.</p><br><br>\r\n",
     "time": "1970-01-17T08:03:16.129Z",
-    "status": true,
+    "status": "show",
     "_id": "53486eaaead3150200ca791d",
     "__v": 0
   }

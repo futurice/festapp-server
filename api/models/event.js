@@ -7,7 +7,7 @@ var EventSchema = new Schema({
   end_time: Date,
   location: String,
   description: String,
-  artist: [String],
+  artists: [String],
   starred_count: Number
 });
 
