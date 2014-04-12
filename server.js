@@ -30,8 +30,8 @@ app.use(logger('short'));
 app.use(bodyParser());
 app.use('/public', express.static(__dirname + '/public'));
 
-var apiVersion = 'v1';
-app.get('/api/'+apiVersion+'/localisation/:key', function(req, res) {
+var apiVersion = '/v1';
+app.get('/api'+apiVersion+'/localisation/:key', function(req, res) {
   var cb = function(res, object) { res.json(object); }.bind(null, res);
   redis.get(req.params.key, function(err, val) {
     if (err) {
@@ -44,7 +44,7 @@ app.get('/api/'+apiVersion+'/localisation/:key', function(req, res) {
   });
 });
 
-app.post('/api/'+apiVersion+'/localisation', function(req, res) {
+app.post('/api'+apiVersion+'/localisation', function(req, res) {
   redis.set(req.body.key, req.body.val);
   res.status(200);
   res.json({success: 'Localisation added'});
