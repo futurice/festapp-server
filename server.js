@@ -39,7 +39,7 @@ function accessFilter(req, res, next) {
 
 var app = express();
 app.use(logger('short'));
-app.use('/api', accessFilter);
+//app.use('/api', accessFilter);
 app.use(bodyParser());
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/app', express.static(__dirname + '/app'));
