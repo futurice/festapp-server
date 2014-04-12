@@ -8,7 +8,7 @@ var newsSchema = new Schema({
   teaser_text: String,
   content: String,
   time: Date,
-  status: Boolean
+  status: String
 });
 
 module.exports = mongoose.model('News', newsSchema);
