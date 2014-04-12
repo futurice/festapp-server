@@ -161,7 +161,7 @@ Base URL is `/api/v1/`.
 Append `lang=<lang>` to the request, f.ex. `/api/v1/artists?lang=fi`
 
 ### Localisation API
-* `GET /api/v1/localisation/:key` (`key` is of format `<fieldname>-<value>-<lang>`)
+* `GET /api/v1/localisation/:key` (`key` is of format <fieldname>-<value>-<fieldtype>-<lang>)
 * `POST /api/v1/localisation/` (Accepts JSON in the form `{ 'key' : <key>, 'val' : <value>}`)
 
 ### Instagram API
