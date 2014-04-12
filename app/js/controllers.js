@@ -152,14 +152,10 @@ myAppControllers.
   controller('FestivalCtrl', ['$scope', '$routeParams', '$location', 'Festival', function ($scope, $routeParams, $location, Festival) {
 
     Festival.query(function(response){
-      $scope.festivals = response;
+      $scope.festival = response[0];
     });
 
-    Festival.get({festivalId: $routeParams.festivalId}, function(festival) {
-      $scope.festival = festival;
-    });
-
-    $scope.saveInfo = function(){
+    $scope.saveFestival = function(){
       Festival.update({ festivalId:$scope.festival._id},$scope.festival);
     }
 

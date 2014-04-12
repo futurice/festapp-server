@@ -57,7 +57,7 @@ twatter.authenticate(function(success) {
 
 var app = express();
 app.use(logger('short'));
-app.use('/api', accessFilter);
+//app.use('/api', accessFilter);
 app.use(bodyParser());
 app.use('/api' + apiVersion + '/twitter/search/:search/:count?',  twitter.twitter.createHandler(twatter, 'search'))
   .use('/api' + apiVersion + '/twitter/user/:userSearch/:count?', twitter.twitter.createHandler(twatter, 'userSearch'))
