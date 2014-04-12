@@ -10,10 +10,10 @@ var mongoose = require('mongoose');
 var Localise = require('./lib/localise');
 
 var Artist = require('./api/models/artist');
-var Faq = require('./api/models/faq');
+var Info = require('./api/models/info');
 var News = require('./api/models/news');
-var Program = require('./api/models/program');
-var Stage = require('./api/models/stage');
+var Event = require('./api/models/event');
+var Location = require('./api/models/location');
 var Festival = require('./api/models/festival');
 
 var mongourl = process.env.MONGOLAB_URI || 'mongodb://localhost/festapp-dev';
@@ -56,11 +56,11 @@ restify.defaults({
 });
 
 restify.serve(app, Artist);
-restify.serve(app, Faq, { plural: true });
+restify.serve(app, Info, { plural: false });
 restify.serve(app, News);
-restify.serve(app, Program);
-restify.serve(app, Stage);
-restify.serve(app, Festival, { plural: true });
+restify.serve(app, Event);
+restify.serve(app, Location);
+restify.serve(app, Festival, { plural: false });
 
 var port = Number(process.env.PORT || 8080);
 http.createServer(app).listen(port);
