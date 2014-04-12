@@ -26,9 +26,13 @@
   },
   "dependencies": {
     "express": ">= 3.5.0",
-    "instagram-node": ">= 0.2.3"
+    "instagram-node": ">= 0.2.3",
+    "mongoose": "^3.8.8",
+    "express-restify-mongoose": "^0.6.7"
   },
   "devDependencies": {
-    "jshint": "~2.5.0"
+    "jshint": "~2.5.0",
+    "gulp": "^3.6.0",
+    "gulp-jshint": "^1.5.3"
   }
 }
