@@ -10,6 +10,9 @@ var News = require('./api/models/news');
 var Program = require('./api/models/program');
 var Stage = require('./api/models/stage');
 
+var topArtists = require('./lib/lastfm');
+
+
 var mongourl = process.env.MONGOLAB_URI || 'mongodb://localhost/festapp-dev';
 mongoose.connect(mongourl);
 var db = mongoose.connection;
@@ -19,6 +22,7 @@ db.once('open', function callback () {
 });
 
 var app = express();
+app.get('/api/top-artists/:username', topArtists.topArtists);
 app.use('/public', express.static(__dirname + '/public'));
 
 restify.serve(app, Artist);
