@@ -6,7 +6,16 @@ var StageSchema = new Schema({
   x: Number,
   y: Number,
   width: Number,
-  height: Number
+  height: Number,
+  type: String
 });
 
-module.exports = mongoose.model('Stage', StageSchema);
+StageSchema.statics.types = {
+  stage: 'STAGE',
+  tent: 'TENT',
+  indoor: 'INDOOR'
+};
+
+var Stage = mongoose.model('Stage', StageSchema);
+
+module.exports = Stage;
