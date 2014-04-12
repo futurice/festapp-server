@@ -6,7 +6,7 @@ gulp.task('default', ['lint'], function() {
 });
 
 gulp.task('lint', function() {
-  gulp.src(['./lib/*.js', 'server.js'])
+  gulp.src(['./api/**/*.js', 'server.js', './lib/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
