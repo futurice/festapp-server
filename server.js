@@ -7,6 +7,7 @@ var logger = require('morgan');
 var url = require('url');
 var after = require('after');
 var redis = require('redis-url').connect(process.env.REDISCLOUD_URL);
+var bodyParser = require('body-parser');
 
 var Artist = require('./api/models/artist');
 var Faq = require('./api/models/faq');
@@ -26,6 +27,8 @@ redis.on('error', function (err) {
 });
 
 var app = express();
+app.use(logger('short'));
+app.use(bodyParser());
 app.use('/public', express.static(__dirname + '/public'));
 restify.defaults({
    outputFn: function(res, result) {
@@ -47,6 +50,24 @@ restify.defaults({
     }
   }
 });
+app.get('/api/v1/localization/:key', function(req, res) {
+  var cb = function(res, object) { res.send(object); }.bind(null, res);
+  redis.get(req.params.key, function(err, val) {
+    if (err) {
+      cb({error: 'Error while fetching key: ' + err});
+    } else if (val) {
+      cb({value: val});
+    }
+  });
+});
+
+app.post('/api/v1/localization', function(req, res) {
+  console.log(req.body);
+  redis.set(req.body.key, req.body.val);
+  res.status(200);
+  res.json({message: 'Success'});
+});
+
 restify.serve(app, Artist);
 restify.serve(app, Faq);
 restify.serve(app, News);
