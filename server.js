@@ -94,6 +94,11 @@ restify.serve(app, Event);
 restify.serve(app, Location);
 restify.serve(app, Festival, { plural: false });
 
+var instagram = require('./lib/instagram');
+
+app.use('/api/instagram/tag', instagram.tagMedia)
+   .use('/api/instagram/user', instagram.userMedia);
+
 var port = Number(process.env.PORT || 8080);
 http.createServer(app).listen(port);
 console.log('Running at port '+port);
