@@ -144,8 +144,8 @@ Base URL is `/api/v1/`.
   {
     "title": "Foo",
     "y": 100,
-    "start_time": 1397296806,
-    "end_time": 1397296806,
+    "start_time": "2014-04-12T10:00:00.000Z",
+    "end_time": "2014-04-12T12:00:00.000Z",
     "location": "Niitty",
     "_id": "53486eaaead3150200ca791e",
     "artists": ["Tapani Kansa"],
