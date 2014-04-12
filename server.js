@@ -3,9 +3,9 @@ var http = require('http');
 var url = require('url');
 var restify = require('express-restify-mongoose');
 var mongoose = require('mongoose');
-var mb = require('musicbrainz');
+//var mb = require('musicbrainz');
 
-var lastfm = require('./lib/lastfm')
+var lastfm = require('./lib/lastfm_artist_search')
 
 
 var Artist = require('./api/models/artist');
