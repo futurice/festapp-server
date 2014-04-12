@@ -3,3 +3,6 @@ node_modules/
 *.iml
 
 data/db/local.ns
+
+data/db/mongod.lock
+data/db/*
