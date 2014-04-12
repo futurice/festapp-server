@@ -109,7 +109,13 @@ app.get('/api' + apiVersion + '/schema/:model', function(req, res) {
   var publicSchema = {};
   props.forEach(function(val) {
     if (val !== '__v') {
-      publicSchema[val] = schema[val].name;
+      if (schema[val].constructor.name === 'Array') {
+        publicSchema[val] = [schema[val][0].name];
+      } else if (schema[val].constructor.name === 'Object') {
+        publicSchema[val] = schema[val].type.name;
+      } else {
+        publicSchema[val] = schema[val].name;
+      }
     }
   });
   res.json(publicSchema);
