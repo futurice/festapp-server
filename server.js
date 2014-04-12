@@ -1,6 +1,5 @@
 var express = require('express');
 var http = require('http');
-var url = require('url');
 var restify = require('express-restify-mongoose');
 var mongoose = require('mongoose');
 var logger = require('morgan');
