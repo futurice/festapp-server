@@ -51,6 +51,7 @@ function accessFilter(req, res, next) {
       if (accounts.indexOf(new Buffer(req.headers.authorization.split(' ')[1], 'base64').toString()) !== -1) {
         next();
       } else {
+        res.header('WWW-Authenticate', 'Basic realm="festapp-server"');
         res.send('Wrong username or password', 401);
       }
     } else {
