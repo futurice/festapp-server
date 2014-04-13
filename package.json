@@ -43,7 +43,10 @@
     "after": "^0.8.1",
     "body-parser": "^1.0.1",
     "mongoose-unique-validator": "^0.3.0",
-    "imdb-api": "^1.3.3"
+    "imdb-api": "^1.3.3",
+    "request": "^2.34.0",
+    "lodash": "^2.4.1",
+    "underscore.string": "^2.3.3"
   },
   "devDependencies": {
     "gulp": "^3.6.0",
