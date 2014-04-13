@@ -1,3 +1,7 @@
+var redis = require('redis-url').connect(process.env.REDISCLOUD_URL)
+  , Event = require('../api/models/event')
+;
+
 module.exports = function(app, apiVersion) {
   app.post('/api' + apiVersion + '/events/:event_id/star', function(req, res) {
     var user_id = req.body.user_id;
