@@ -14,13 +14,13 @@ myAppControllers.
 
         query();
 
+        $scope.createArtistName = {name: ''}
+
         $scope.createArtist = function () {
             console.log("create");
             Artist.save({'name': $scope.createArtistName.name});
             $timeout(query, 1000);
         }
-
-        $scope.createArtistName = {name: ''}
 
         $scope.deleteArtist = function (id) {
             console.log("remove");
@@ -43,10 +43,9 @@ myAppControllers.
             Artist.update({ artistId: $scope.artist._id}, $scope.artist);
         }
 
-
         $scope.schema = [];
 
-        $http.get("../public/models/artist.json").success(function (data) {
+        $http.get("/api/v1/schema/artist").success(function (data) {
             Object.getOwnPropertyNames(data).forEach(function (name) {
                 var type = (data[name].type) || data[name]
                 $scope.schema.push({"name": name, "type": type})
@@ -65,11 +64,12 @@ myAppControllers.
         }
 
         query();
-        $scope.createEventName = {name: ''}
+
+        $scope.createEventTitle = {title: ''}
 
         $scope.createEvent = function () {
             console.log("create");
-            Event.save({'name': $scope.createEventName.name});
+            Event.save({'title': $scope.createEventTitle.title});
             $timeout(query, 1000);
         }
 
@@ -114,11 +114,12 @@ myAppControllers.
         }
 
         query();
-        $scope.createNewsName = {name: ''}
+
+        $scope.createNewsTitle = {title: ''}
 
         $scope.createNews = function () {
             console.log("create");
-            News.save({'name': $scope.createNewsName.name});
+            News.save({'title': $scope.createNewsTitle.title});
             $timeout(query, 1000);
         }
 
@@ -163,6 +164,7 @@ myAppControllers.
         }
 
         query();
+
         $scope.createLocationName = {name: ''};
 
         $scope.createLocation = function () {
@@ -191,7 +193,6 @@ myAppControllers.
             Location.update({ locationId: $scope.location._id}, $scope.location);
         }
 
-
         $scope.schema = [];
 
         $http.get("/api/v1/schema/location").success(function (data) {
@@ -213,11 +214,12 @@ myAppControllers.
         }
 
         query();
-        $scope.createInfoName = {name: ''}
+
+        $scope.createInfoTitle = {title: ''}
 
         $scope.createInfo = function () {
             console.log("create");
-            Info.save({'name': $scope.createInfoName.name});
+            Info.save({'title': $scope.createInfoTitle.title});
             $timeout(query, 1000);
         }
 
@@ -261,7 +263,6 @@ myAppControllers.
         $scope.saveFestival = function () {
             Festival.update({ festivalId: $scope.festival._id}, $scope.festival);
         }
-
 
         $scope.schema = [];
 
