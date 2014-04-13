@@ -50,7 +50,7 @@ input[type="text"] {
     height: 100px;
 }
 
-ul li img {
+table tr td img {
     max-width: 50px;
     max-height: 50px;
 }
@@ -68,4 +68,12 @@ textarea.json {
 
 p.formSubmit {
     padding-top: 1em;
+}
+
+table.listing tr td {
+    padding-left: 2em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    border-bottom-style: dashed;
+    border-bottom-width: 1px;
 }

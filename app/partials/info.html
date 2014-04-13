@@ -1,8 +1,8 @@
-<ul>
+<table class="listing">
     <input type="text" ng-model="createInfoTitle.title"/>
     <input type="button" value="Create new" ng-click="createInfo()" />
-    <li ng-repeat="infoItem in infos" class="infoPick">
-        <input type="button" value="Delete" ng-click="deleteInfo(infoItem._id)"/>
-        <a href="#/infoItem/{{infoItem._id}}">{{infoItem.title}}</a>
-    </li>
-</ul>
+    <tr ng-repeat="infoItem in infos" class="infoPick">
+        <td><input type="button" value="Delete" ng-click="deleteInfo(infoItem._id)"/></td>
+        <td><a href="#/infoItem/{{infoItem._id}}">{{infoItem.title}}</a></td>
+    </tr>
+</table>

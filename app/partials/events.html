@@ -1,8 +1,8 @@
-<ul>
+<table class="listing">
     <input type="text" ng-model="createEventTitle.title"/>
     <input type="button" value="Create new" ng-click="createEvent()"/>
-    <li ng-repeat="event in events">
-        <input type="button" value="Delete" ng-click="deleteEvent(event._id)"/>
-        <a href="#/event/{{event._id}}">{{event.title}}</a>
-    </li>
-</ul>
+    <tr ng-repeat="event in events">
+        <td><input type="button" value="Delete" ng-click="deleteEvent(event._id)"/></td>
+        <td><a href="#/event/{{event._id}}">{{event.title}}</a></td>
+    </tr>
+</table>

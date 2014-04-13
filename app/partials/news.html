@@ -1,8 +1,8 @@
-<ul>
+<table class="listing">
     <input type="text" ng-model="createNewsTitle.title"/>
     <input type="button" value="Create new" ng-click="createNews()"/>
-    <li ng-repeat="newsItem in news" class="newsPick">
-        <input type="button" value="Delete" ng-click="deleteNews(newsItem._id)"/>
-        <a href="#/newsItem/{{newsItem._id}}">{{newsItem.title}}</a>
-    </li>
-</ul>
+    <tr ng-repeat="newsItem in news" class="newsPick">
+        <td><input type="button" value="Delete" ng-click="deleteNews(newsItem._id)"/></td>
+        <td><a href="#/newsItem/{{newsItem._id}}">{{newsItem.title}}</a></td>
+    </tr>
+</table>
