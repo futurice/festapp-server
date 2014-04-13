@@ -8,7 +8,7 @@ describe('POST localisation value', function(){
       .post('/api/v1/localisation/')
       .set('Authorization', 'Basic YWRtaW46YWRtaW4=')
       .set('Content-Type', 'application/json')
-      .send({key:'type-STAGE-de', value: 'BÜHNE'})
+      .send({key:'type-STAGE-String-de', val: 'BÜHNE'})
       .expect({success: 'Localisation added'})
       .expect(200)
       .end(done);
@@ -23,12 +23,10 @@ describe('GET localised locations', function(){
       .expect('Content-Type', /json/)
       .expect(200)
       .expect(function(res) {
-        res.body.forEach(function(location) {
-          if (location.type === 'BÜHNE') {
-            return false;
-          }
+        var types = res.body.map(function(location) {
+          return location.type;
         });
-        return 'Localized string was not found';
+        return ~types.indexOf('BÜHNE') ? false : 'Localized string was not found';
       })
       .end(done);
   });

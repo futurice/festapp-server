@@ -93,8 +93,12 @@ app.get('/api'+apiVersion+'/localisation/:key', function(req, res) {
   });
 });
 
-app.post('/api'+apiVersion+'/localisation', function(req, res) {
-  redis.set(req.body.key, req.body.val);
+app.post('/api'+apiVersion+'/localisation', function(req, res, next) {
+  redis.set(req.body.key, req.body.val, function(err) {
+    if(err) {
+      next(err);
+    }
+  });
   res.status(200);
   res.json({success: 'Localisation added'});
 });
