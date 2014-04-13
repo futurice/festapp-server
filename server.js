@@ -1,23 +1,21 @@
-var _s = require('underscore.string');
-var _ = require('lodash');
-var express = require('express');
-var http = require('http');
-var restify = require('express-restify-mongoose');
-var bodyParser = require('body-parser');
-var logger = require('morgan');
-
-var redis = require('redis-url').connect(process.env.REDISCLOUD_URL);
-var mongoose = require('mongoose');
-
-var Localise = require('./lib/localise');
-
-var Artist = require('./api/models/artist');
-var Info = require('./api/models/info');
-var News = require('./api/models/news');
-var Event = require('./api/models/event');
-var Location = require('./api/models/location');
-var Festival = require('./api/models/festival');
-var imdb = require('./lib/imdb');
+var _s = require('underscore.string')
+  , _ = require('lodash')
+  , express = require('express')
+  , http = require('http')
+  , restify = require('express-restify-mongoose')
+  , bodyParser = require('body-parser')
+  , logger = require('morgan')
+  , redis = require('redis-url').connect(process.env.REDISCLOUD_URL)
+  , mongoose = require('mongoose')
+  , Localise = require('./lib/localise')
+  , Artist = require('./api/models/artist')
+  , Info = require('./api/models/info')
+  , News = require('./api/models/news')
+  , Event = require('./api/models/event')
+  , Location = require('./api/models/location')
+  , Festival = require('./api/models/festival')
+  , imdb = require('./lib/imdb')
+;
 
 var modelMap = {
   'artist': Artist,
