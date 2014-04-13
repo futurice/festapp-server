@@ -4,7 +4,7 @@
   "description": "Basic mockup server for festapp",
   "main": "server.js",
   "scripts": {
-    "test": "node_modules/.bin/jshint server.js",
+    "test": "gulp lint",
     "start": "node server.js"
   },
   "repository": {
@@ -16,24 +16,40 @@
     "backend"
   ],
   "author": "Juho Vähä-Herttua, Matias Kirvelä",
+  "contributors": [
+    "Timo Sand <timo.j.sand@gmail.com>",
+    "Olli Rissanen",
+    "Santeri Hiltunen",
+    "Tomi Simsiö"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/futurice/festapp-server/issues"
   },
   "homepage": "https://github.com/futurice/festapp-server",
   "engines": {
-    "node": "0.10.x"
+    "npm": ">=1.3.7",
+    "node": ">= 0.10.26"
   },
   "dependencies": {
-    "express": ">= 3.5.0",
+    "express": ">= 4.0.0",
+    "instagram-node": ">= 0.2.3",
     "mongoose": "^3.8.8",
     "express-restify-mongoose": "^0.6.7",
     "request": "^2.34.0",
-    "memory-cache": "0.0.5"
+    "memory-cache": "0.0.5",
+    "morgan": "^1.0.0",
+    "redis": "^0.10.1",
+    "redis-url": "^0.2.0",
+    "after": "^0.8.1",
+    "body-parser": "^1.0.1",
+    "mongoose-unique-validator": "^0.3.0",
+    "lodash": "^2.4.1",
+    "underscore.string": "^2.3.3"
   },
   "devDependencies": {
-    "jshint": "~2.5.0",
     "gulp": "^3.6.0",
-    "gulp-jshint": "^1.5.3"
+    "gulp-jshint": "^1.5.3",
+    "gulp-nodemon": "^1.0.2"
   }
 }
