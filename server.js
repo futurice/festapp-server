@@ -1,3 +1,5 @@
+var _s = require('underscore.string');
+var _ = require('lodash');
 var express = require('express');
 var http = require('http');
 var restify = require('express-restify-mongoose');
@@ -121,17 +123,32 @@ app.get('/api' + apiVersion + '/schema/:model', function(req, res) {
   var props = Object.keys(schema);
   var publicSchema = {};
   props.forEach(function(val) {
-    if (val !== '__v') {
-      publicSchema[val] = schema[val].name;
+    // Remove unwanted property
+    if (!_s.startsWith(val, '_')) {
+      // Detect whether the values constructor is of type Array
+      if (_.isArray(schema[val])) {
+        publicSchema[val] = [schema[val][0].name]; // To inform the calling party what type of an array this is, we get the array's first member, which happens to bo the constructor for the inner type
+      } else if (_.isPlainObject(schema[val])) {
+        if (typeof schema[val].type === 'undefined') {
+          publicSchema[val] = {};
+          for (var prop in schema[val]) {
+            publicSchema[val][prop] = schema[val][prop].name;
+          }
+        } else {
+          publicSchema[val] = schema[val].type.name;
+        }
+      } else {
+        publicSchema[val] = schema[val].name;
+      }
     }
   });
   res.json(publicSchema);
 });
 
 restify.defaults({
-   outputFn: Localise.localiseApiCallResult,
-   version: apiVersion,
-   private: '__v'
+ outputFn: Localise.localiseApiCallResult,
+ version: apiVersion,
+ private: '__v'
 });
 
 restify.serve(app, Artist);
@@ -144,7 +161,7 @@ restify.serve(app, Festival, { plural: false });
 var instagram = require('./lib/instagram');
 
 app.use('/api/instagram/tag', instagram.tagMedia)
-   .use('/api/instagram/user', instagram.userMedia);
+.use('/api/instagram/user', instagram.userMedia);
 
 
 var port = Number(process.env.PORT || 8080);
