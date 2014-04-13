@@ -27,7 +27,7 @@ var accounts = ['admin:admin'];
 // Only allow GET, OPTIONS and HEAD-requests to /api-calls without HTTP Basic authentication
 function accessFilter(req, res, next) {
   var matchStar = new RegExp(apiVersion+'/events/\\w+/star.*').test(req.path);
-  if (req.method == 'GET' || req.method == 'OPTIONS' || req.method == 'HEAD' || matchStar) {
+  if (req.method == 'GET' || req.method == 'OPTIONS' || req.method == 'HEAD' || matchStar) {
     next();
   } else {
     if (req.headers.authorization && req.headers.authorization.search('Basic ') === 0) {
