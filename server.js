@@ -182,6 +182,7 @@ app.use('/api' + apiVersion + '/instagram/tag', instagram.tagMedia)
    .use('/api' + apiVersion + '/flickr/tag', flickr.tagMedia)
    .use('/api' + apiVersion + '/flickr/user', flickr.userMedia);
 
+app.use(require('./lib/error_handler'));
 
 var port = Number(process.env.PORT || 8080);
 http.createServer(app).listen(port);
