@@ -1,6 +1,9 @@
-<table class="listing">
+<div class="listing">
     <input type="text" ng-model="createLocationName.name"/>
     <input type="button" value="Create new" ng-click="createLocation()"/>
+</div>
+        <hr />
+<table class="listing">
     <tr ng-repeat="location in locations" class="locationPick">
         <td><input type="button" value="Delete" ng-click="deleteLocation(location._id)"/></td>
         <td><a href="#/location/{{location._id}}">{{location.name}}</a></td>

@@ -27,6 +27,10 @@ input[type="text"] {
     width: 500px;
 }
 
+div.listing input[type="text"] {
+    width: 19em;
+}
+
 .contentWrapper {
     padding: 20px;
 }
