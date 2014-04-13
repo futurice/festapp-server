@@ -6,9 +6,10 @@ describe('POST localisation value', function(){
   it('successfully sets localisation', function(done){
     request(app)
       .post('/api/v1/localisation/')
+      .set('Authorization', 'Basic YWRtaW46YWRtaW4=')
       .set('Content-Type', 'application/json')
       .send({key:'type-STAGE-de', value: 'BÜHNE'})
-      // .expect({success: 'Localisation added'})
+      .expect({success: 'Localisation added'})
       .expect(200)
       .end(done);
   });
