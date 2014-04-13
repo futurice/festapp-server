@@ -17,6 +17,7 @@ var News = require('./api/models/news');
 var Event = require('./api/models/event');
 var Location = require('./api/models/location');
 var Festival = require('./api/models/festival');
+var imdb = require('./lib/imdb');
 
 var modelMap = {
   'artist': Artist,
@@ -62,6 +63,7 @@ var app = express();
 var rotten = require('./lib/rotten');
 app.get('/api/rotten/:query', rotten.rotten);
 
+app.get('/api/imdb/:query', imdb.imdb)
 app.use(logger('short'));
 app.use('/api', accessFilter);
 app.use(bodyParser());
