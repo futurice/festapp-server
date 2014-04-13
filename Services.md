@@ -6,17 +6,17 @@ This is the documentation for all of the 3rd party services that are integrated 
 We currently have some integrations to the following services:
 
 =======
-[![Twitter](https://raw.githubusercontent.com/futurice/festapp-server/master/public/twitter-300.png)](http://twitter.com)
+[![Twitter](public/twitter-300.png)](http://twitter.com)
 
-[![Instagram](https://raw.githubusercontent.com/futurice/festapp-server/master/public/instagram-300.png)](http://instagram.com)
+[![Instagram](public/instagram-300.png)](http://instagram.com)
 
-[![Flickr](https://raw.githubusercontent.com/futurice/festapp-server/master/public/flickr-300.png)](http://flickr.com/)
+[![Flickr](public/flickr-300.png)](http://flickr.com/)
 
-[![IMDb](https://raw.githubusercontent.com/futurice/festapp-server/master/public/imdb-300.png)](http://www.imdb.com/)
+[![IMDb](public/imdb-300.png)](http://www.imdb.com/)
 
-[![Rotten Tomatoes](https://raw.githubusercontent.com/futurice/festapp-server/master/public/rotten-300.png)](http://www.rottentomatoes.com)
+[![Rotten Tomatoes](public/rotten-300.png)](http://www.rottentomatoes.com)
 
-[![Last.fm](https://raw.githubusercontent.com/futurice/festapp-server/master/public/lastfm-300.png)](http://last.fm/)
+[![Last.fm](public/lastfm-300.png)](http://last.fm/)
 
 # [OpenWeatherMap](http://openweathermap.org/)
 
@@ -39,7 +39,7 @@ TWITTER_SECRET
 
 You want to find all mentions of your event's name for example:
 
-![Twitter full-text search](https://raw.githubusercontent.com/futurice/festapp-server/master/public/twitter-full-text.png)
+![Twitter full-text search](public/twitter-full-text.png)
 
 `GET /twitter/search/:search-term/:limit`
 
@@ -78,7 +78,7 @@ Example:
 
 You want to show your event's twitter account feed
 
-![Twitter user timeline](https://raw.githubusercontent.com/futurice/festapp-server/master/public/twitter-from-user.png)
+![Twitter user timeline](public/twitter-from-user.png)
 
 
 `GET /twitter/user/:twitter-handle/:limit`
@@ -113,7 +113,7 @@ Example:
 
 You want to follow your event's hashtag
 
-![Twitter hashtag search](https://raw.githubusercontent.com/futurice/festapp-server/master/public/twitter-hashtag.png)
+![Twitter hashtag search](public/twitter-hashtag.png)
 
 `GET /twitter/hashtag/:hashtag/:limit`
 
@@ -161,7 +161,7 @@ IGUSERID = Instagram userid used for search
 
 You want to follow your event's hashtag:
 
-![Instagram hashtag search](https://raw.githubusercontent.com/futurice/festapp-server/master/public/instagram-hashtag.png)
+![Instagram hashtag search](public/instagram-hashtag.png)
 
 `GET /api/instagram/tag`
 
@@ -194,7 +194,7 @@ Note: The API does not yet provide searching on variable usernames, just the har
 
 #### Instagram user feed
 
-![Instagram user feed](https://raw.githubusercontent.com/futurice/festapp-server/master/public/instagram-user.png)
+![Instagram user feed](public/instagram-user.png)
 
 `GET /api/instagram/user`
 
@@ -236,7 +236,7 @@ FLICKRPERPAGE = Flickr feed size, default: 20
 
 #### Flick hashtag search
 
-![Flickr hashtag search](https://raw.githubusercontent.com/futurice/festapp-server/master/public/flickr-hashtag.png)
+![Flickr hashtag search](public/flickr-hashtag.png)
 
 
 `GET /api/v1/flickr/tag`
@@ -271,7 +271,7 @@ FLICKRPERPAGE = Flickr feed size, default: 20
 
 #### Flickr user stream
 
-![Flickr user search](https://raw.githubusercontent.com/futurice/festapp-server/master/public/flickr-user.png)
+![Flickr user search](public/flickr-user.png)
 
 
 `GET /api/v1/flickr/user`
@@ -307,7 +307,7 @@ FLICKRPERPAGE = Flickr feed size, default: 20
 
 Move title search
 
-![IMDb movie title search](https://raw.githubusercontent.com/futurice/festapp-server/master/public/imdb-search.png)
+![IMDb movie title search](public/imdb-search.png)
 
 `GET /imdb/:search`
 
@@ -342,7 +342,7 @@ Example:
 
 Movie title search for best match.
 
-![Rotten Tomatoes search](https://raw.githubusercontent.com/futurice/festapp-server/master/public/rotten-search.png)
+![Rotten Tomatoes search](public/rotten-search.png)
 
 `GET /rotten/:search`
 
@@ -457,10 +457,10 @@ Example:
 
 #### Event's recommended artist lineup
 
-![Last.fm event lineup](https://raw.githubusercontent.com/futurice/festapp-server/master/public/lastfm-event.png)
+![Last.fm event lineup](public/lastfm-event.png)
 
 
-![Last.fm recommended lineup](https://raw.githubusercontent.com/futurice/festapp-server/master/public/lastfm-recommended.png)
+![Last.fm recommended lineup](public/lastfm-recommended.png)
 
 
 `GET /top-artists/:username`
