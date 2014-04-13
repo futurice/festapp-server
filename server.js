@@ -163,6 +163,7 @@ var instagram = require('./lib/instagram');
 app.use('/api/instagram/tag', instagram.tagMedia)
   .use('/api/instagram/user', instagram.userMedia);
 
+app.use(require('./lib/error_handler'));
 
 var port = Number(process.env.PORT || 8080);
 http.createServer(app).listen(port);
