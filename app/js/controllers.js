@@ -47,8 +47,9 @@ myAppControllers.
 
         $http.get("/api/v1/schema/artist").success(function (data) {
             Object.getOwnPropertyNames(data).forEach(function (name) {
-                var type = (data[name].type) || data[name]
-                $scope.schema.push({"name": name, "type": type})
+                var type = (data[name].type) || data[name];
+                if ($.isArray(data[name])) type = "[" + type + "]";
+                $scope.schema.push({"name": name, "type": type});
             });
         });
 
@@ -97,8 +98,9 @@ myAppControllers.
 
         $http.get("/api/v1/schema/event").success(function (data) {
             Object.getOwnPropertyNames(data).forEach(function (name) {
-                var type = (data[name].type) || data[name]
-                $scope.schema.push({"name": name, "type": type})
+              var type = (data[name].type) || data[name];
+              if ($.isArray(data[name])) type = "[" + type + "]";
+              $scope.schema.push({"name": name, "type": type});
             });
         });
 
@@ -147,8 +149,9 @@ myAppControllers.
 
         $http.get("/api/v1/schema/news").success(function (data) {
             Object.getOwnPropertyNames(data).forEach(function (name) {
-                var type = (data[name].type) || data[name]
-                $scope.schema.push({"name": name, "type": type})
+              var type = (data[name].type) || data[name];
+              if ($.isArray(data[name])) type = "[" + type + "]";
+              $scope.schema.push({"name": name, "type": type});
             });
         });
 
@@ -197,8 +200,9 @@ myAppControllers.
 
         $http.get("/api/v1/schema/location").success(function (data) {
             Object.getOwnPropertyNames(data).forEach(function (name) {
-                var type = (data[name].type) || data[name]
-                $scope.schema.push({"name": name, "type": type})
+              var type = (data[name].type) || data[name];
+              if ($.isArray(data[name])) type = "[" + type + "]";
+              $scope.schema.push({"name": name, "type": type});
             });
         });
 
@@ -246,8 +250,9 @@ myAppControllers.
 
         $http.get("/api/v1/schema/info").success(function (data) {
             Object.getOwnPropertyNames(data).forEach(function (name) {
-                var type = (data[name].type) || data[name]
-                $scope.schema.push({"name": name, "type": type})
+              var type = (data[name].type) || data[name];
+              if ($.isArray(data[name])) type = "[" + type + "]";
+              $scope.schema.push({"name": name, "type": type});
             });
         });
 
@@ -268,8 +273,9 @@ myAppControllers.
 
         $http.get("/api/v1/schema/festival").success(function (data) {
             Object.getOwnPropertyNames(data).forEach(function (name) {
-                var type = (data[name].type) || data[name]
-                $scope.schema.push({"name": name, "type": type})
+              var type = (data[name].type) || data[name];
+              if ($.isArray(data[name])) type = "[" + type + "]";
+              $scope.schema.push({"name": name, "type": type});
             });
         });
     }]);
