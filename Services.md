@@ -495,7 +495,7 @@ Example:
 
 Get local weather for your event upt next 14 days at 3 hour intervals.
 
-`GET /weather/:city/:timestamp`
+`GET /weather/:city/:epoch-timestamp`
 
 Note: `:timestamp` is optional and will by default just return the current weather.
 
@@ -509,4 +509,9 @@ Example:
   "weather":"sunny"
 }
 ```
+Where temp is in celsius and the weather one of the following:
+'sunny','partly cloudy','cloudy','light rain','rain','heavy rain','storm','snow','fog'
+
+Will return `"error"` if the result was invalid.
+
 
