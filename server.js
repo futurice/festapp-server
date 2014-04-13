@@ -1,3 +1,5 @@
+var _s = require('underscore.string');
+var _ = require('lodash');
 var express = require('express');
 var http = require('http');
 var restify = require('express-restify-mongoose');
@@ -15,6 +17,7 @@ var News = require('./api/models/news');
 var Event = require('./api/models/event');
 var Location = require('./api/models/location');
 var Festival = require('./api/models/festival');
+var imdb = require('./lib/imdb');
 
 var modelMap = {
     'artist': Artist,
@@ -49,19 +52,20 @@ function accessFilter(req, res, next) {
 var twitter = require('./lib/twitter');
 var twatter = new twitter.twitter(process.env.TWITTER_API_KEY, process.env.TWITTER_SECRET);
 twatter.authenticate(function(success) {
-  if (!success) {
-    console.error("Authentication failed");
-  }
+    if (!success) {
+        console.error("Authentication failed");
+    }
 })
 
 
 var app = express();
+app.get('/api/imdb/:query', imdb.imdb)
 app.use(logger('short'));
 //app.use('/api', accessFilter);
 app.use(bodyParser());
 app.use('/api' + apiVersion + '/twitter/search/:search/:count?',  twitter.twitter.createHandler(twatter, 'search'))
-  .use('/api' + apiVersion + '/twitter/user/:userSearch/:count?', twitter.twitter.createHandler(twatter, 'userSearch'))
-  .use('/api' + apiVersion + '/twitter/hashtag/:hashtag/:count?', twitter.twitter.createHandler(twatter, 'hashtag'))
+    .use('/api' + apiVersion + '/twitter/user/:userSearch/:count?', twitter.twitter.createHandler(twatter, 'userSearch'))
+    .use('/api' + apiVersion + '/twitter/hashtag/:hashtag/:count?', twitter.twitter.createHandler(twatter, 'hashtag'))
 
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/app', express.static(__dirname + '/app'));
@@ -122,8 +126,23 @@ app.get('/api' + apiVersion + '/schema/:model', function(req, res) {
     var props = Object.keys(schema);
     var publicSchema = {};
     props.forEach(function(val) {
-        if (val !== '__v') {
-            publicSchema[val] = schema[val].name;
+        // Remove unwanted property
+        if (!_s.startsWith(val, '_')) {
+            // Detect whether the values constructor is of type Array
+            if (_.isArray(schema[val])) {
+                publicSchema[val] = [schema[val][0].name]; // To inform the calling party what type of an array this is, we get the array's first member, which happens to bo the constructor for the inner type
+            } else if (_.isPlainObject(schema[val])) {
+                if (typeof schema[val].type === 'undefined') {
+                    publicSchema[val] = {};
+                    for (var prop in schema[val]) {
+                        publicSchema[val][prop] = schema[val][prop].name;
+                    }
+                } else {
+                    publicSchema[val] = schema[val].type.name;
+                }
+            } else {
+                publicSchema[val] = schema[val].name;
+            }
         }
     });
     res.json(publicSchema);
