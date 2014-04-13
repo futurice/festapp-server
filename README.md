@@ -156,6 +156,10 @@ Base URL is `/api/v1/`.
 
 `user_id` parameter must be set in the POST body. `user_id` is used to uniquely identify users and one user can star one event only once. `event_id` is the database id of event.
 
+### Service integrations
+
+[List of integrated services](Services.md)
+
 ### Getting localised data
 
 Append `lang=<lang>` to the request, f.ex. `/api/v1/artists?lang=fi`
