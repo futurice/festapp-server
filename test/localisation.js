@@ -20,6 +20,7 @@ describe('GET localised locations', function(){
     request(app)
       .get('/api/v1/locations?lang=de')
       .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
       .expect(200)
       .expect(function(res) {
         var types = res.body.map(function(location) {
