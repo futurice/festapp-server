@@ -1,8 +1,4 @@
-node_modules/
 .idea/
 *.iml
-
-data/db/local.ns
-
-data/db/mongod.lock
-data/db/*
+build/
+node_modules/
