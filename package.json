@@ -4,7 +4,7 @@
   "description": "Basic mockup server for festapp",
   "main": "server.js",
   "scripts": {
-    "test": "gulp lint",
+    "test": "gulp lint && mocha",
     "start": "node server.js"
   },
   "repository": {
@@ -47,11 +47,15 @@
     "imdb-api": "^1.3.3",
     "lodash": "^2.4.1",
     "underscore.string": "^2.3.3",
-    "lastfm": "0.9.x"
+    "lastfm": "0.9.x",
+    "node-flickr": "0.0.1"
+
   },
   "devDependencies": {
     "gulp": "^3.6.0",
     "gulp-jshint": "^1.5.3",
-    "gulp-nodemon": "^1.0.2"
+    "gulp-nodemon": "^1.0.2",
+    "supertest": "^0.10.0",
+    "mocha": "^1.18.2"
   }
 }
