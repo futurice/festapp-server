@@ -309,12 +309,12 @@ Move title search
 
 ![IMDb movie title search](public/imdb-search.png)
 
-`GET /imdb/:search`
+`GET /api/v1/imdb/:search`
 
 Returns the best match for the `:search` term
 
 Example:
-`GET /imdb/monty+python+and`
+`GET /api/v1/imdb/monty+python+and`
 
 **Response**
 
@@ -344,11 +344,11 @@ Movie title search for best match.
 
 ![Rotten Tomatoes search](public/rotten-search.png)
 
-`GET /rotten/:search`
+`GET /api/v1/rotten/:search`
 
 Example:
 
-`GET /rotten/monty+python+holy`
+`GET /api/v1/rotten/monty+python+holy`
 
 ```json
 
