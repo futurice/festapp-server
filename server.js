@@ -175,10 +175,12 @@ restify.serve(app, Location);
 restify.serve(app, Festival, { plural: false });
 
 var instagram = require('./lib/instagram');
+var flickr = require('./lib/flickr');
 
-app.use('/api/instagram/tag', instagram.tagMedia)
-  .use('/api/instagram/user', instagram.userMedia);
-
+app.use('/api' + apiVersion + '/instagram/tag', instagram.tagMedia)
+   .use('/api' + apiVersion + '/instagram/user', instagram.userMedia)
+   .use('/api' + apiVersion + '/flickr/tag', flickr.tagMedia)
+   .use('/api' + apiVersion + '/flickr/user', flickr.userMedia);
 
 
 var port = Number(process.env.PORT || 8080);
