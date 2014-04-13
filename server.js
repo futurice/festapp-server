@@ -10,6 +10,7 @@ var redis = require('redis-url').connect(process.env.REDISCLOUD_URL);
 var mongoose = require('mongoose');
 
 var Localise = require('./lib/localise');
+var Weather = require('./lib/weather');
 
 var Artist = require('./api/models/artist');
 var Info = require('./api/models/info');
@@ -77,7 +78,13 @@ app.use('/api' + apiVersion + '/twitter/search/:search/:count?',  twitter.twitte
    .use('/api' + apiVersion + '/twitter/user/:userSearch/:count?', twitter.twitter.createHandler('userSearch'))
    .use('/api' + apiVersion + '/twitter/hashtag/:hashtag/:count?', twitter.twitter.createHandler('hashtag'))
 
+
+
 app.use('/public', express.static(__dirname + '/public'));
+
+app.get('/api/v1/weather/:city/:timestamp?', Weather.weather);
+
+
 
 app.get('/api'+apiVersion+'/localisation/:key', function(req, res) {
   var cb = function(res, object) { res.json(object); }.bind(null, res);
