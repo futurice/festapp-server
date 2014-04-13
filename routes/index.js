@@ -6,6 +6,7 @@ var instagram = require('./instagram')
   , rotten = require('./rotten')
   , flickr = require('./flickr')
   , weather = require('./weather')
+  , data = require('./data')
 ;
 
 module.exports = function(app, apiVersion) {
@@ -17,4 +18,5 @@ module.exports = function(app, apiVersion) {
   twitter(app, apiVersion);
   flickr(app, apiVersion);
   weather(app, apiVersion);
+  data(app, apiVersion);
 }
