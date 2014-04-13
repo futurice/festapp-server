@@ -4,7 +4,7 @@
   "description": "Basic mockup server for festapp",
   "main": "server.js",
   "scripts": {
-    "test": "mocha",
+    "test": "gulp lint && mocha",
     "start": "node server.js"
   },
   "repository": {
