@@ -11,6 +11,10 @@ Festapp project page: http://futurice.github.io/festapp-server/
 
 Run the project: `npm start`
 
+## Admin panel
+
+Admin panel is available at yourdomain/festapp-server/app
+
 ## API Documentation
 
 Base URL is `/api/v1/`.
