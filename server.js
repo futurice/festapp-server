@@ -25,7 +25,7 @@ var modelMap = {
     'festival': Festival
 };
 
-var mongourl = process.env.MONGOLAB_URI || 'mongodb://localhost/festapp-dev';
+var mongourl = process.env.MONGOLAB_URI || 'mongodb://festapp:festappi@oceanic.mongohq.com:10043/app24018204';
 mongoose.connect(mongourl);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

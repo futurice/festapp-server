@@ -1,7 +1,7 @@
 <div class="artist" >
 <h3>{{artist.name}}</h3>
 <img src="../{{artist.picture}}" alt=""/> <br/>
-<form>
+<form name="artist">
     <div ng-repeat="field in schema">
         <div ng-switch on="field.type">
             <div ng-switch-when="String">

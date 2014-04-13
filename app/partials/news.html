@@ -1,7 +1,8 @@
 <ul>
-
-    <button value="Create new">Create New</button>
+    <input type="text" ng-model="createNewsName.name"/>
+    <input type="button" value="Create new" ng-click="createNews()"/>
     <li ng-repeat="newsItem in news" class="newsPick">
+        <input type="button" value="Delete" ng-click="deleteNews(newsItem._id)"/>
         <a href="#/newsItem/{{newsItem._id}}">{{newsItem.title}}</a>
     </li>
 </ul>

@@ -1,6 +1,8 @@
 <ul>
-    <button value="Create new">Create New</button>
+    <input type="text" ng-model="createInfoName.name"/>
+    <input type="button" value="Create new" ng-click="createInfo()" />
     <li ng-repeat="infoItem in infos" class="infoPick">
+        <input type="button" value="Delete" ng-click="deleteInfo(infoItem._id)"/>
         <a href="#/infoItem/{{infoItem._id}}">{{infoItem.title}}</a>
     </li>
 </ul>

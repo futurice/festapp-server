@@ -1,7 +1,9 @@
-<ul>
 
-    <button value="Create new">Create New</button>
+<ul>
+    <input type="text" ng-model="createArtistName.name"/>
+    <input type="button" value="Create new" ng-click="createArtist()"/>
     <li ng-repeat="artist in artists" class="artistPick">
+        <input type="button" value="Delete" ng-click="deleteArtist(artist._id)"/>
         <img src="../{{artist.picture}}" alt=""/>
         <a href="#/artist/{{artist._id}}">{{artist.name}}</a>
     </li>
