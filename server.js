@@ -17,6 +17,7 @@ var News = require('./api/models/news');
 var Event = require('./api/models/event');
 var Location = require('./api/models/location');
 var Festival = require('./api/models/festival');
+var imdb = require('./lib/imdb');
 
 var modelMap = {
   'artist': Artist,
@@ -58,6 +59,7 @@ twatter.authenticate(function(success) {
 
 
 var app = express();
+app.get('/api/imdb/:query', imdb.imdb)
 app.use(logger('short'));
 app.use('/api', accessFilter);
 app.use(bodyParser());
