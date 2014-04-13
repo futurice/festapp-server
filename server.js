@@ -28,7 +28,7 @@ var modelMap = {
     'festival': Festival
 };
 
-var mongourl = process.env.MONGOLAB_URI || 'mongodb://festapp:festappi@oceanic.mongohq.com:10043/app24018204';
+var mongourl = process.env.MONGOLAB_URI || 'mongodb://localhost/festapp-dev';
 mongoose.connect(mongourl);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -49,23 +49,20 @@ function accessFilter(req, res, next) {
     }
 }
 
-var twitter = require('./lib/twitter');
-var twatter = new twitter.twitter(process.env.TWITTER_API_KEY, process.env.TWITTER_SECRET);
-twatter.authenticate(function(success) {
-    if (!success) {
-        console.error("Authentication failed");
-    }
-})
-
-
 var app = express();
+
+var rotten = require('./lib/rotten');
+app.get('/api/rotten/:query', rotten.rotten);
+
 app.get('/api/imdb/:query', imdb.imdb)
+
+var twitter = require('./lib/twitter');
 app.use(logger('short'));
 app.use('/api', accessFilter);
 app.use(bodyParser());
-app.use('/api' + apiVersion + '/twitter/search/:search/:count?',  twitter.twitter.createHandler(twatter, 'search'))
-    .use('/api' + apiVersion + '/twitter/user/:userSearch/:count?', twitter.twitter.createHandler(twatter, 'userSearch'))
-    .use('/api' + apiVersion + '/twitter/hashtag/:hashtag/:count?', twitter.twitter.createHandler(twatter, 'hashtag'))
+app.use('/api' + apiVersion + '/twitter/search/:search/:count?',  twitter.twitter.createHandler('search'))
+    .use('/api' + apiVersion + '/twitter/user/:userSearch/:count?', twitter.twitter.createHandler('userSearch'))
+    .use('/api' + apiVersion + '/twitter/hashtag/:hashtag/:count?', twitter.twitter.createHandler('hashtag'))
 
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/app', express.static(__dirname + '/app'));
@@ -165,6 +162,7 @@ var instagram = require('./lib/instagram');
 
 app.use('/api/instagram/tag', instagram.tagMedia)
     .use('/api/instagram/user', instagram.userMedia);
+
 
 
 var port = Number(process.env.PORT || 8080);
