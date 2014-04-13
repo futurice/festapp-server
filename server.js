@@ -12,7 +12,6 @@ var express = require('express')
   , Event = require('./api/models/event')
   , Location = require('./api/models/location')
   , Festival = require('./api/models/festival')
-  , imdb = require('./lib/imdb')
 ;
 
 var mongourl = process.env.MONGOLAB_URI || 'mongodb://localhost/festapp-dev';

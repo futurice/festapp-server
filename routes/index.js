@@ -4,6 +4,7 @@ var instagram = require('./instagram')
   , star = require('./star')
   , twitter = require('./twitter')
   , rotten = require('./rotten')
+  , flickr = require('./flickr')
 ;
 
 module.exports = function(app, apiVersion) {
