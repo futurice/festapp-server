@@ -23,6 +23,7 @@ describe('GET localised locations', function(){
       .expect('Content-Type', /json/)
       .expect(200)
       .expect(function(res) {
+        console.log(res.headers);
         var types = res.body.map(function(location) {
           return location.type;
         });
