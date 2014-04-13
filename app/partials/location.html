@@ -8,7 +8,7 @@
                 </div>
                 <div ng-switch-when="Date">
                     <div class="input-append date" onload="$(this).datetimepicker({language: 'pt-BR'});">
-                        <input data-format="dd/MM/yyyy hh:mm:ss" type="text" ng-model=location[field.name] />
+                        <input data-format="dd/MM/yyyy hh:mm:ss" type="text" ng-model=location[field.name] />{{field.name}}
                     <span class="add-on">
                       <i data-time-icon="icon-time" data-date-icon="icon-calendar">
                       </i>
