@@ -16,7 +16,7 @@ We currently have some integrations to the following services:
 
 [![Rotten Tomatoes](https://raw.githubusercontent.com/los-nudos/festapp-server/services-documentation/public/rotten-300.png)](http://www.rottentomatoes.com)
 
-[![Last.fm](https://raw.githubusercontent.com/los-nudos/festapp-server/services-documentation/public/lastfm.gif)](http://last.fm/)
+[![Last.fm](https://raw.githubusercontent.com/los-nudos/festapp-server/services-documentation/public/lastfm-300.png)](http://last.fm/)
 
 # [OpenWeatherMap](http://openweathermap.org/)
 
