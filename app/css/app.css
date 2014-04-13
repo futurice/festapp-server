@@ -48,3 +48,8 @@ input[type="text"] {
     width: 100px;
     height: 100px;
 }
+
+ul li img {
+    max-width: 50px;
+    max-height: 50px;
+}
