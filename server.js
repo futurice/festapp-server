@@ -146,9 +146,9 @@ app.get('/api' + apiVersion + '/schema/:model', function(req, res) {
 });
 
 restify.defaults({
- outputFn: Localise.localiseApiCallResult,
- version: apiVersion,
- private: '__v'
+  outputFn: Localise.localiseApiCallResult,
+  version: apiVersion,
+  private: '__v'
 });
 
 restify.serve(app, Artist);
@@ -161,7 +161,7 @@ restify.serve(app, Festival, { plural: false });
 var instagram = require('./lib/instagram');
 
 app.use('/api/instagram/tag', instagram.tagMedia)
-.use('/api/instagram/user', instagram.userMedia);
+  .use('/api/instagram/user', instagram.userMedia);
 
 
 var port = Number(process.env.PORT || 8080);
