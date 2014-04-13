@@ -50,6 +50,10 @@ function accessFilter(req, res, next) {
 }
 
 var app = express();
+
+var rotten = require('./lib/rotten');
+app.get('/api/rotten/:query', rotten.rotten);
+
 app.get('/api/imdb/:query', imdb.imdb)
 
 var twitter = require('./lib/twitter');
