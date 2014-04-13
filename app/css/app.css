@@ -54,3 +54,18 @@ ul li img {
     max-width: 50px;
     max-height: 50px;
 }
+
+div.json {
+    padding-top: 4em;
+}
+
+textarea.json {
+    width:600px;
+    height:200px;
+    border:1px solid #000000;
+    background-color:#CCCCCC;
+}
+
+p.formSubmit {
+    padding-top: 1em;
+}
