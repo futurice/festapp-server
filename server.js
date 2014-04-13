@@ -173,12 +173,10 @@ http.createServer(app).listen(port);
 console.log('Running at port '+port);
 
 
-app.get('/test/:artist?', function(req, res) {
+app.get('api/lastfm/search/:artist?', function(req, res) {
 	var artist = req.params.artist
-	lastfm.search(artist, res)
-	//res.write("asdads")
-	//console.log(asd)
-	//res.write("asd")
-	//res.end()
+
+	// writes a json response
+	lastfm.search(artist, res);
 
   });

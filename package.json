@@ -46,7 +46,8 @@
     "mongoose-unique-validator": "^0.3.0",
     "imdb-api": "^1.3.3",
     "lodash": "^2.4.1",
-    "underscore.string": "^2.3.3"
+    "underscore.string": "^2.3.3",
+    "lastfm": "0.9.x"
   },
   "devDependencies": {
     "gulp": "^3.6.0",
