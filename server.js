@@ -191,7 +191,7 @@ var port = Number(process.env.PORT || 8080);
 http.createServer(app).listen(port);
 console.log('Running at port '+port);
 
-app.get('api/lastfm/search/:artist?', function(req, res) {
+app.get('/api' + apiVersion + '/lastfm/search/:artist?', function(req, res) {
 	var artist = req.params.artist
 
 	// writes a json response
