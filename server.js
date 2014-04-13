@@ -39,13 +39,26 @@ redis.on('error', function (err) {
 
 var apiVersion = '/v1';
 
-// Only allow GET, OPTIONS and HEAD-requests to /api-calls
+// Accounts which may do POST and PUT -requests to api
+var accounts = ['admin:admin'];
+
+// Only allow GET, OPTIONS and HEAD-requests to /api-calls without HTTP Basic authentication
 function accessFilter(req, res, next) {
   var matchStar = new RegExp(apiVersion+'/events/\\w+/star.*').test(req.path);
   if (req.method == 'GET' || req.method == 'OPTIONS' || req.method == 'HEAD' || matchStar) {
     next();
   } else {
-    res.send(403);
+    if (req.headers.authorization && req.headers.authorization.search('Basic ') === 0) {
+      if (accounts.indexOf(new Buffer(req.headers.authorization.split(' ')[1], 'base64').toString()) !== -1) {
+        next();
+      } else {
+        res.header('WWW-Authenticate', 'Basic realm="festapp-server"');
+        res.send('Wrong username or password', 401);
+      }
+    } else {
+      res.header('WWW-Authenticate', 'Basic realm="festapp-server"');
+      res.send(401);
+    }
   }
 }
 
@@ -79,8 +92,12 @@ app.get('/api'+apiVersion+'/localisation/:key', function(req, res) {
   });
 });
 
-app.post('/api'+apiVersion+'/localisation', function(req, res) {
-  redis.set(req.body.key, req.body.val);
+app.post('/api'+apiVersion+'/localisation', function(req, res, next) {
+  redis.set(req.body.key, req.body.val, function(err) {
+    if(err) {
+      next(err);
+    }
+  });
   res.status(200);
   res.json({success: 'Localisation added'});
 });
@@ -167,3 +184,5 @@ app.use('/api/instagram/tag', instagram.tagMedia)
 var port = Number(process.env.PORT || 8080);
 http.createServer(app).listen(port);
 console.log('Running at port '+port);
+
+module.exports = app;
