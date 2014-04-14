@@ -8,8 +8,7 @@ Festapp project page: http://futurice.github.io/festapp-server/
 * Install MongoDB and Redis.
 * Install dependencies: `npm install`
 * When developing locally: `node import-data.js`
-
-Run the project: `npm start`
+* Run the project: `npm start`
 
 ## API Documentation
 
@@ -80,7 +79,9 @@ Base URL is `/api/v1/`.
 ```
 
 ### Get locations
-`GET /locations`
+`GET /locations` or `GET /locations?type=RESTAURANT`
+
+type can `STAGE` or `RESTAURANT`
 
 **Response**
 ```json
