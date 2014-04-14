@@ -17,9 +17,6 @@ var accessFilter = require('./lib/access_filter');
 
 var app = express();
 
-var topArtists = require('./lib/lastfm');
-app.get('/api/top-artists/:username', topArtists.topArtists);
-
 app.use(logger('short'));
 app.use('/api', accessFilter(accounts, apiVersion));
 app.use(bodyParser());

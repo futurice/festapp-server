@@ -2,6 +2,7 @@ var data = require('./data')
   , flickr = require('./flickr')
   , imdb = require('./imdb')
   , instagram = require('./instagram')
+  , lastfm = require('./lastfm')
   , localisation = require('./localisation')
   , rotten = require('./rotten')
   , schema = require('./schema')
@@ -15,6 +16,7 @@ module.exports = function(app, apiVersion) {
   flickr(app, apiVersion);
   imdb(app, apiVersion);
   instagram(app, apiVersion);
+  lastfm(app, apiVersion);
   localisation(app, apiVersion);
   rotten(app, apiVersion);
   schema(app, apiVersion);
