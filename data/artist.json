@@ -1,0 +1,236 @@
+{"artist": {
+  "name": "Stam1na",
+  "mbid": "f74c7996-4c0b-4ebd-b1e7-219e21c41286",
+  "bandmembers": {
+    "member": [
+      {
+        "name": "Antti Hyyrynen",
+        "yearfrom": "1996"
+      },
+      {
+        "name": "Pekka Olkkonen",
+        "yearfrom": "1996"
+      },
+      {
+        "name": "Teppo Velin",
+        "yearfrom": "1996"
+      },
+      {
+        "name": "Kai-Pekka Kangasm\u00e4ki",
+        "yearfrom": "2005"
+      },
+      {
+        "name": "Emil L\u00e4hteenm\u00e4ki",
+        "yearfrom": "2009"
+      }
+    ]
+  },
+  "url": "http:\/\/www.last.fm\/music\/Stam1na",
+  "image": [
+    {
+      "#text": "http:\/\/userserve-ak.last.fm\/serve\/34\/60542697.jpg",
+      "size": "small"
+    },
+    {
+      "#text": "http:\/\/userserve-ak.last.fm\/serve\/64\/60542697.jpg",
+      "size": "medium"
+    },
+    {
+      "#text": "http:\/\/userserve-ak.last.fm\/serve\/126\/60542697.jpg",
+      "size": "large"
+    },
+    {
+      "#text": "http:\/\/userserve-ak.last.fm\/serve\/252\/60542697.jpg",
+      "size": "extralarge"
+    },
+    {
+      "#text": "http:\/\/userserve-ak.last.fm\/serve\/_\/60542697\/Stam1na+_terhiylimainen_13.jpg",
+      "size": "mega"
+    }
+  ],
+  "streamable": "1",
+  "ontour": "1",
+  "stats": {
+    "listeners": "89261",
+    "playcount": "10324780",
+    "userplaycount": "795"
+  },
+  "similar": {
+    "artist": [
+      {
+        "name": "Mokoma",
+        "url": "http:\/\/www.last.fm\/music\/Mokoma",
+        "image": [
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/34\/236075.jpg",
+            "size": "small"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/64\/236075.jpg",
+            "size": "medium"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/126\/236075.jpg",
+            "size": "large"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/252\/236075.jpg",
+            "size": "extralarge"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/500\/236075\/Mokoma.jpg",
+            "size": "mega"
+          }
+        ]
+      },
+      {
+        "name": "Kotiteollisuus",
+        "url": "http:\/\/www.last.fm\/music\/Kotiteollisuus",
+        "image": [
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/34\/8544243.jpg",
+            "size": "small"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/64\/8544243.jpg",
+            "size": "medium"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/126\/8544243.jpg",
+            "size": "large"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/252\/8544243.jpg",
+            "size": "extralarge"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/500\/8544243\/Kotiteollisuus.jpg",
+            "size": "mega"
+          }
+        ]
+      },
+      {
+        "name": "Rytmih\u00e4iri\u00f6",
+        "url": "http:\/\/www.last.fm\/music\/Rytmih%C3%A4iri%C3%B6",
+        "image": [
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/34\/86972463.jpg",
+            "size": "small"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/64\/86972463.jpg",
+            "size": "medium"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/126\/86972463.jpg",
+            "size": "large"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/252\/86972463.jpg",
+            "size": "extralarge"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/500\/86972463\/Rytmihiri+13122_489359207767716_61360580.jpg",
+            "size": "mega"
+          }
+        ]
+      },
+      {
+        "name": "Turmion K\u00e4til\u00f6t",
+        "url": "http:\/\/www.last.fm\/music\/Turmion+K%C3%A4til%C3%B6t",
+        "image": [
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/34\/92762165.jpg",
+            "size": "small"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/64\/92762165.jpg",
+            "size": "medium"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/126\/92762165.jpg",
+            "size": "large"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/252\/92762165.jpg",
+            "size": "extralarge"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/500\/92762165\/Turmion+Ktilt++2013.jpg",
+            "size": "mega"
+          }
+        ]
+      },
+      {
+        "name": "FM2000",
+        "url": "http:\/\/www.last.fm\/music\/FM2000",
+        "image": [
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/34\/53647563.jpg",
+            "size": "small"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/64\/53647563.jpg",
+            "size": "medium"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/126\/53647563.jpg",
+            "size": "large"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/252\/53647563.jpg",
+            "size": "extralarge"
+          },
+          {
+            "#text": "http:\/\/userserve-ak.last.fm\/serve\/_\/53647563\/FM2000+FM2010promo.jpg",
+            "size": "mega"
+          }
+        ]
+      }
+    ]
+  },
+  "tags": {
+    "tag": [
+      {
+        "name": "thrash metal",
+        "url": "http:\/\/www.last.fm\/tag\/thrash%20metal"
+      },
+      {
+        "name": "finnish",
+        "url": "http:\/\/www.last.fm\/tag\/finnish"
+      },
+      {
+        "name": "metal",
+        "url": "http:\/\/www.last.fm\/tag\/metal"
+      },
+      {
+        "name": "progressive metal",
+        "url": "http:\/\/www.last.fm\/tag\/progressive%20metal"
+      },
+      {
+        "name": "finnish metal",
+        "url": "http:\/\/www.last.fm\/tag\/finnish%20metal"
+      }
+    ]
+  },
+  "bio": {
+    "links": {
+      "link": {
+        "#text": "",
+        "rel": "original",
+        "href": "http:\/\/www.last.fm\/music\/Stam1na\/+wiki"
+      }
+    },
+    "published": "Sun, 19 Feb 2012 11:19:20 +0000",
+    "summary": "\n                Stam1na released it's self-titled debut in the spring of 2005, but before that Stam1na was one of the most anticipated unsigned acts in Finland. The second album Uudet kymmenen k\u00e4sky\u00e4 was released in May of 2006 and the third album <a title=\"Stam1na - Raja\" href=\"http:\/\/www.last.fm\/music\/Stam1na\/Raja\" class=\"bbcode_album\">Raja<\/a> February 2008. Stam1nas 4th album, Viimeinen Atlantis, was released on February 10, 2010. Their 5th album, Nocebo, was released on 8th of February 2012. The first single release from the album was Valtiaan uudet vaateet which had much controversy video with some cruel violence.  \n\n        <a href=\"http:\/\/www.last.fm\/music\/Stam1na\">Read more about Stam1na on Last.fm<\/a>.\n    \n    ",
+    "content": "\n                    Stam1na released it's self-titled debut in the spring of 2005, but before that Stam1na was one of the most anticipated unsigned acts in Finland. The second album Uudet kymmenen k\u00e4sky\u00e4 was released in May of 2006 and the third album <a title=\"Stam1na - Raja\" href=\"http:\/\/www.last.fm\/music\/Stam1na\/Raja\" class=\"bbcode_album\">Raja<\/a> February 2008. Stam1nas 4th album, Viimeinen Atlantis, was released on February 10, 2010. Their 5th album, Nocebo, was released on 8th of February 2012. The first single release from the album was Valtiaan uudet vaateet which had much controversy video with some cruel violence.  \n\n        <a href=\"http:\/\/www.last.fm\/music\/Stam1na\">Read more about Stam1na on Last.fm<\/a>.\n    \n    \nUser-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.\n    ",
+    "placeformed": "Lemi",
+    "yearformed": "1996",
+    "formationlist": {
+      "formation": {
+        "yearfrom": "1996",
+        "yearto": ""
+      }
+    }
+  }
+}}
