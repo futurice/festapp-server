@@ -18,8 +18,8 @@ var accessFilter = require('./lib/access_filter');
 var app = express();
 
 app.use(logger('short'));
-app.use('/api', accessFilter(accounts, apiVersion));
 app.use(bodyParser());
+app.use('/api', accessFilter(accounts, apiVersion));
 app.use('/public', express.static(__dirname + '/public'));
 
 routes(app, apiVersion);
