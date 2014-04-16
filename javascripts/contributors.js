@@ -12,7 +12,7 @@
       });
     });
 
-  var users = {};
+  var usersPromise = $.ajax('contributors.json');
 
   function contributorUrl(projectName) {
     return 'https://api.github.com/repos/futurice/'+projectName+'/contributors';
@@ -27,16 +27,17 @@
       .value();
 
     function userLink(e) {
-      console.log(e);
-      var element =  $('<a>').attr("href", e.html_url).html(e.login);
+      var element = $('<a>').attr('href', e.html_url).html(e.login);
 
-      if (!users[e.login]) {
-        users[e.login] = $.ajax(e.url);
-      }
+      usersPromise.then(function (users) {
+        var user = _.find(users, function (u) {
+          return u.login === e.login;
+        });
 
-      users[e.login].then(function (res) {
-        var name = res.name ? res.name + " (" + res.login + ")" : res.login;
-        element.html(name);
+        if (user) {
+          var name = user.name ? user.name + " (" + user.login + ")" : user.login;
+          element.html(name);
+        }
       });
 
       return element;
