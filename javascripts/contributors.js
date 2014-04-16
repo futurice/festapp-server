@@ -26,9 +26,11 @@
 
   function processContributorData(contributorList, project){
     return _(contributorList)
-      .shuffle() // no-one is more important!
       .union(hardcodedContributors[project])
-      .uniq(false, 'login')
+      .sortBy(function(e){
+        return e.login.toLowerCase();
+      })
+      .uniq(true, 'login')
       .map(function (e) {
         return $('<li>').append(userLink(e));
       })
