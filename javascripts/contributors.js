@@ -1,70 +1,65 @@
 (function (document) {
   'use strict';
 
+  var hardcodedContributors = {
+    'festapp-ios': [
+      {login: 'repomies', html_url: 'https://github.com/repomies', hardcodedName: 'Janne Käki'}
+    ]
+  };
+
   _([
     'festapp-android',
     'festapp-ios',
     'festapp-wp',
     'festapp-server'])
     .each(function(project){
-      sendRequest(contributorUrl(project), function (req){
-        document.getElementById(project).innerHTML = processContributorData(req);
+      $.ajax(contributorUrl(project)).then(function (res) {
+        $('#' + project).html(processContributorData(res, project));
       });
     });
+
+  var usersPromise = $.ajax('contributors.json');
 
   function contributorUrl(projectName) {
     return 'https://api.github.com/repos/futurice/'+projectName+'/contributors';
   }
 
-  function processContributorData(req){
-    var contributorList = JSON.parse(req.responseText);
-    return _(contributorList).map(templateUser).reduce(listify, "");
+  function processContributorData(contributorList, project){
+    return _(contributorList)
+      .union(hardcodedContributors[project])
+      .sortBy(function(e){
+        return e.login.toLowerCase();
+      })
+      .uniq(true, 'login')
+      .map(function (e) {
+        return $('<li>').append(userLink(e));
+      })
+      .value();
 
-    function listify(output, item) {
-      return output + "<li>" + item + "</li>\n";
+    function displayName(user) {
+      return user.name ? user.name + " (" + user.login + ")" : user.login;
     }
 
-    function templateUser(e) {
-      return '<a href="' + e.html_url + '">' + e.login + '</a>';
-    }
-  }
-
-  function createXMLHTTPObject() {
-    var XMLHttpFactories = [
-        function () {return new XMLHttpRequest()},
-        function () {return new ActiveXObject("Msxml2.XMLHTTP")},
-        function () {return new ActiveXObject("Msxml3.XMLHTTP")},
-        function () {return new ActiveXObject("Microsoft.XMLHTTP")}
-    ];
-      var xmlhttp = false;
-      for (var i=0;i<XMLHttpFactories.length;i++) {
-          try {
-              xmlhttp = XMLHttpFactories[i]();
-          }
-          catch (e) {
-              continue;
-          }
-          break;
+    function userLink(e) {
+      if (!e.name) {
+        e.name = e.hardcodedName;
       }
-      return xmlhttp;
+      var element = $('<a>').attr('href', e.html_url).html(displayName(e));
+
+      usersPromise.then(function (users) {
+        var user = _.find(users, function (u) {
+          return u.login === e.login;
+        });
+
+        if (user) {
+          var name = displayName(user);
+          element.html(name);
+        }
+      });
+
+      return element;
+    }
   }
 
-  function sendRequest(url,callback,postData) {
-      var req = createXMLHTTPObject();
-      if (!req) return;
-      var method = (postData) ? "POST" : "GET";
-      req.open(method,url,true);
-      if (postData)
-          req.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-      req.onreadystatechange = function () {
-          if (req.readyState != 4) return;
-          if (req.status != 200 && req.status != 304) {
-              return;
-          }
-          callback(req);
-      };
-      if (req.readyState == 4) return;
-      req.send(postData);
-  }
 
 })(document);
