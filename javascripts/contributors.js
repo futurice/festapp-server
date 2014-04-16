@@ -3,7 +3,7 @@
 
   var hardcodedContributors = {
     'festapp-ios': [
-      {login: 'jkaki', html_url: 'https://github.com/jkaki', hardcodedName: 'Janne Käki'}
+      {login: 'repomies', html_url: 'https://github.com/repomies', hardcodedName: 'Janne Käki'}
     ]
   };
 
