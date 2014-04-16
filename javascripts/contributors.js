@@ -1,11 +1,5 @@
-(function (document) {
+$(function () {
   'use strict';
-
-  var hardcodedContributors = {
-    'festapp-ios': [
-      {login: 'repomies', html_url: 'https://github.com/repomies', hardcodedName: 'Janne Käki'}
-    ]
-  };
 
   _([
     'festapp-android',
@@ -13,20 +7,32 @@
     'festapp-wp',
     'festapp-server'])
     .each(function(project){
-      $.ajax(contributorUrl(project)).then(function (res) {
-        $('#' + project).html(processContributorData(res, project));
-      });
+      var element = $('#' + project);
+      var existing = $('li a', element).map(function (idx, li) {
+        li = $(li);
+        var login = li.text();
+        return {
+          login: login,
+        };
+      }).toArray();
+
+      $.ajax(contributorUrl(project))
+      .then(function (res, textStatus) {
+        element.html(processContributorData(res.concat(existing)));
+      })
+      .fail(function () {
+        element.html(processContributorData(existing));
+      })
     });
 
   var usersPromise = $.ajax('contributors.json');
 
   function contributorUrl(projectName) {
-    return 'https://api.github.com/repos/futurice/'+projectName+'/contributors';
+    return 'https://api.github.com/repos/futurice/' + projectName + '/contributors';
   }
 
-  function processContributorData(contributorList, project){
+  function processContributorData(contributorList) {
     return _(contributorList)
-      .union(hardcodedContributors[project])
       .sortBy(function(e){
         return e.login.toLowerCase();
       })
@@ -41,10 +47,8 @@
     }
 
     function userLink(e) {
-      if (!e.name) {
-        e.name = e.hardcodedName;
-      }
-      var element = $('<a>').attr('href', e.html_url).html(displayName(e));
+      var html_url = e.html_url || 'https://github.com/' + e.login;
+      var element = $('<a>').attr('href', html_url).html(displayName(e));
 
       usersPromise.then(function (users) {
         var user = _.find(users, function (u) {
@@ -60,6 +64,4 @@
       return element;
     }
   }
-
-
-})(document);
+});

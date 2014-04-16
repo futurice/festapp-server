@@ -9,6 +9,12 @@ var PROJECTS = [
 ];
 
 var OUTPUTFILE="contributors.json";
+var EXTRA_CONTRIBUTORS = [
+    {
+        login: "repomies",
+        url: "https://api.github.com/users/repomies",
+    },
+];
 
 var _ = require('lodash');
 var when = require('when');
@@ -53,7 +59,7 @@ when.all(PROJECTS.map(function (project) {
     return requestJSON(contributorsUrl(project));
 }))
 .then(function (lists) {
-    var contributors = _(lists)
+    var contributors = _(lists.concat([EXTRA_CONTRIBUTORS]))
         .flatten(true)
         .sortBy(getLogin)
         .uniq(true, getLogin)
@@ -66,7 +72,7 @@ when.all(PROJECTS.map(function (project) {
 .then(function (contributors) {
     console.log(contributors);
 
-	fs.writeFileSync(OUTPUTFILE, JSON.stringify(contributors));
+    fs.writeFileSync(OUTPUTFILE, JSON.stringify(contributors, null, 2));
 })
 .catch(function (err) {
     console.dir(err);
