@@ -1,6 +1,12 @@
 (function (document) {
   'use strict';
 
+  var hardcodedContributors = {
+    'festapp-ios': [
+      {login: 'jkaki', html_url: 'https://github.com/jkaki', hardcodedName: 'Janne Käki'}
+    ]
+  };
+
   _([
     'festapp-android',
     'festapp-ios',
@@ -8,7 +14,7 @@
     'festapp-server'])
     .each(function(project){
       $.ajax(contributorUrl(project)).then(function (res) {
-        $('#' + project).html(processContributorData(res));
+        $('#' + project).html(processContributorData(res, project));
       });
     });
 
@@ -18,16 +24,25 @@
     return 'https://api.github.com/repos/futurice/'+projectName+'/contributors';
   }
 
-  function processContributorData(contributorList){
+  function processContributorData(contributorList, project){
     return _(contributorList)
       .shuffle() // no-one is more important!
+      .union(hardcodedContributors[project])
+      .uniq(false, 'login')
       .map(function (e) {
         return $('<li>').append(userLink(e));
       })
       .value();
 
+    function displayName(user) {
+      return user.name ? user.name + " (" + user.login + ")" : user.login;
+    }
+
     function userLink(e) {
-      var element = $('<a>').attr('href', e.html_url).html(e.login);
+      if (!e.name) {
+        e.name = e.hardcodedName;
+      }
+      var element = $('<a>').attr('href', e.html_url).html(displayName(e));
 
       usersPromise.then(function (users) {
         var user = _.find(users, function (u) {
@@ -35,7 +50,7 @@
         });
 
         if (user) {
-          var name = user.name ? user.name + " (" + user.login + ")" : user.login;
+          var name = displayName(user);
           element.html(name);
         }
       });
