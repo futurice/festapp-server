@@ -3,6 +3,7 @@ var flickr = require('./flickr');
 var imdb = require('./imdb');
 var instagram = require('./instagram');
 var lastfm = require('./lastfm');
+var lastfm_artist_search = require('./lastfm_artist_search');
 var localisation = require('./localisation');
 var rotten = require('./rotten');
 var schema = require('./schema');
@@ -17,6 +18,7 @@ module.exports = function(app, apiVersion) {
   imdb(app, apiVersion);
   instagram(app, apiVersion);
   lastfm(app, apiVersion);
+  lastfm_artist_search(app, apiVersion);
   localisation(app, apiVersion);
   rotten(app, apiVersion);
   schema(app, apiVersion);
