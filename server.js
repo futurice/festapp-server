@@ -4,6 +4,10 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var routes = require('./routes');
 var mongoose = require('mongoose');
+//var mb = require('musicbrainz');
+
+var lastfm = require('./lib/lastfm_artist_search')
+
 
 var mongourl = process.env.MONGOLAB_URI || 'mongodb://localhost/festapp-dev';
 mongoose.connect(mongourl);
@@ -28,4 +32,13 @@ var port = Number(process.env.PORT || 8080);
 http.createServer(app).listen(port);
 console.log('Running at port '+port);
 
+app.get('/api' + apiVersion + '/lastfm/search/:artist?', function(req, res) {
+	var artist = req.params.artist
+
+	// writes a json response
+	lastfm.search(artist, res);
+
+  });
+
 module.exports = app;
+
