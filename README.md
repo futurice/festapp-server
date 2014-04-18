@@ -169,8 +169,3 @@ Append `lang=<lang>` to the request, f.ex. `/api/v1/artists?lang=fi`
 * `GET /api/v1/localisation/:key` (`key` is of format `<fieldname>-<value>-<fieldtype>-<lang>`)
 * `POST /api/v1/localisation/` (Accepts JSON in the form `{ 'key' : <key>, 'val' : <value>}`)
 
-
-
-### Last.fm artist search API
-Only takes artist name and returns a JSON response with found results bound to the ArtistModel.
-* `GET /api/lastfm/search/:artist`

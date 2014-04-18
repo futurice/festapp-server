@@ -455,6 +455,14 @@ Example:
 
 ### Last.fm
 
+In order for the API to work, you must have the following environmental variables set:
+
+```
+LASTFM_KEY
+LASTFM_SECRET
+LASTFM_EVENT_ID
+```
+
 #### Event's recommended artist lineup
 
 ![Last.fm event lineup](public/lastfm-event.png)
@@ -490,6 +498,11 @@ Example:
 ]
 ```
 
+#### Artist information
+
+Only takes artist name and returns a JSON response with found results bound to the ArtistModel.
+
+`GET /api/lastfm/search/:artist`
 
 ### OpenWeatherMap
 
