@@ -16,6 +16,8 @@
   "eqnull": true,
   "node": true,
   "globals"   : {
+    "$"          : false,
+    "angular"    : false,
     /* MOCHA */
     "describe"   : false,
     "it"         : false,

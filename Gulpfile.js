@@ -7,7 +7,7 @@ gulp.task('default', ['lint'], function() {
 });
 
 gulp.task('lint', function() {
-  gulp.src(['./api/**/*.js', 'server.js', './lib/**/*.js', './test/**/*.js'])
+  gulp.src(['./api/**/*.js', 'server.js', './lib/**/*.js', './test/**/*.js', './admin/js/[!b]*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });

@@ -10,23 +10,23 @@ myAppControllers.
       Artist.query(function (response) {
         $scope.artists = response;
       });
-    }
+    };
 
     query();
 
-    $scope.createArtistName = {name: ''}
+    $scope.createArtistName = {name: ''};
 
     $scope.createArtist = function () {
-      console.log("create");
+      console.log('create');
       Artist.save({'name': $scope.createArtistName.name});
       $timeout(query, 1000);
-    }
+    };
 
     $scope.deleteArtist = function (id) {
-      console.log("remove");
+      console.log('remove');
       Artist.remove({ artistId: id});
       $timeout(query, 1000);
-    }
+    };
 
 
   }]);
@@ -39,46 +39,48 @@ myAppControllers.
     });
 
     $scope.saveArtist = function () {
-      console.log("save");
+      console.log('save');
       Artist.update({ artistId: $scope.artist._id}, $scope.artist);
-    }
+    };
 
     $scope.schema = [];
 
-    $http.get("/api/v1/schema/artist").success(function (data) {
+    $http.get('/api/v1/schema/artist').success(function (data) {
       Object.getOwnPropertyNames(data).forEach(function (name) {
         var type = (data[name].type) || data[name];
-        if ($.isArray(data[name])) type = "[" + type + "]";
-        $scope.schema.push({"name": name, "type": type});
+        if ($.isArray(data[name])) {
+	  type = '[' + type + ']';
+	}
+        $scope.schema.push({'name': name, 'type': type});
       });
     });
 
   }]);
 
 myAppControllers.
-  controller('EventsListCtrl', ['$scope', 'Event', "$timeout", function ($scope, Event, $timeout) {
+  controller('EventsListCtrl', ['$scope', 'Event', '$timeout', function ($scope, Event, $timeout) {
 
     var query = function () {
       Event.query(function (response) {
         $scope.events = response;
       });
-    }
+    };
 
     query();
 
-    $scope.createEventTitle = {title: ''}
+    $scope.createEventTitle = {title: ''};
 
     $scope.createEvent = function () {
-      console.log("create");
+      console.log('create');
       Event.save({'title': $scope.createEventTitle.title});
       $timeout(query, 1000);
-    }
+    };
 
     $scope.deleteEvent = function (id) {
-      console.log("remove");
+      console.log('remove');
       Event.remove({ eventId: id});
       $timeout(query, 1000);
-    }
+    };
 
   }]);
 
@@ -90,17 +92,19 @@ myAppControllers.
     });
 
     $scope.saveEvent = function () {
-      console.log("save");
+      console.log('save');
       Event.update({ eventId: $scope.event._id}, $scope.event);
-    }
+    };
 
     $scope.schema = [];
 
-    $http.get("/api/v1/schema/event").success(function (data) {
+    $http.get('/api/v1/schema/event').success(function (data) {
       Object.getOwnPropertyNames(data).forEach(function (name) {
         var type = (data[name].type) || data[name];
-        if ($.isArray(data[name])) type = "[" + type + "]";
-        $scope.schema.push({"name": name, "type": type});
+        if ($.isArray(data[name])) {
+	  type = '[' + type + ']';
+	}
+        $scope.schema.push({'name': name, 'type': type});
       });
     });
 
@@ -113,23 +117,23 @@ myAppControllers.
       News.query(function (response) {
         $scope.news = response;
       });
-    }
+    };
 
     query();
 
-    $scope.createNewsTitle = {title: ''}
+    $scope.createNewsTitle = {title: ''};
 
     $scope.createNews = function () {
-      console.log("create");
+      console.log('create');
       News.save({'title': $scope.createNewsTitle.title});
       $timeout(query, 1000);
-    }
+    };
 
     $scope.deleteNews = function (id) {
-      console.log("remove");
+      console.log('remove');
       News.remove({ newsItemId: id});
       $timeout(query, 1000);
-    }
+    };
 
   }]);
 
@@ -141,17 +145,19 @@ myAppControllers.
     });
 
     $scope.saveNews = function () {
-      console.log("save");
+      console.log('save');
       News.update({ newsItemId: $scope.newsItem._id}, $scope.newsItem);
-    }
+    };
 
     $scope.schema = [];
 
-    $http.get("/api/v1/schema/news").success(function (data) {
+    $http.get('/api/v1/schema/news').success(function (data) {
       Object.getOwnPropertyNames(data).forEach(function (name) {
         var type = (data[name].type) || data[name];
-        if ($.isArray(data[name])) type = "[" + type + "]";
-        $scope.schema.push({"name": name, "type": type});
+        if ($.isArray(data[name])) {
+	  type = '[' + type + ']';
+	}
+        $scope.schema.push({'name': name, 'type': type});
       });
     });
 
@@ -164,23 +170,23 @@ myAppControllers.
       Location.query(function (response) {
         $scope.locations = response;
       });
-    }
+    };
 
     query();
 
     $scope.createLocationName = {name: ''};
 
     $scope.createLocation = function () {
-      console.log("create");
+      console.log('create');
       Location.save({'name': $scope.createLocationName.name});
       $timeout(query, 1000);
-    }
+    };
 
     $scope.deleteLocation = function (id) {
-      console.log("remove");
+      console.log('remove');
       Location.remove({ locationId: id});
       $timeout(query, 1000);
-    }
+    };
 
   }]);
 
@@ -192,17 +198,19 @@ myAppControllers.
     });
 
     $scope.saveLocation = function () {
-      console.log("save");
+      console.log('save');
       Location.update({ locationId: $scope.location._id}, $scope.location);
-    }
+    };
 
     $scope.schema = [];
 
-    $http.get("/api/v1/schema/location").success(function (data) {
+    $http.get('/api/v1/schema/location').success(function (data) {
       Object.getOwnPropertyNames(data).forEach(function (name) {
         var type = (data[name].type) || data[name];
-        if ($.isArray(data[name])) type = "[" + type + "]";
-        $scope.schema.push({"name": name, "type": type});
+        if ($.isArray(data[name])) {
+	  type = '[' + type + ']';
+	}
+        $scope.schema.push({'name': name, 'type': type});
       });
     });
 
@@ -215,23 +223,23 @@ myAppControllers.
       Info.query(function (response) {
         $scope.infos = response;
       });
-    }
+    };
 
     query();
 
-    $scope.createInfoTitle = {title: ''}
+    $scope.createInfoTitle = {title: ''};
 
     $scope.createInfo = function () {
-      console.log("create");
+      console.log('create');
       Info.save({'title': $scope.createInfoTitle.title});
       $timeout(query, 1000);
-    }
+    };
 
     $scope.deleteInfo = function (id) {
-      console.log("remove");
+      console.log('remove');
       Info.remove({ infoItemId: id});
       $timeout(query, 1000);
-    }
+    };
   }]);
 
 myAppControllers.
@@ -242,17 +250,19 @@ myAppControllers.
     });
 
     $scope.saveInfo = function () {
-      console.log("save");
+      console.log('save');
       Info.update({ infoItemId: $scope.infoItem._id}, $scope.infoItem);
-    }
+    };
 
     $scope.schema = [];
 
-    $http.get("/api/v1/schema/info").success(function (data) {
+    $http.get('/api/v1/schema/info').success(function (data) {
       Object.getOwnPropertyNames(data).forEach(function (name) {
         var type = (data[name].type) || data[name];
-        if ($.isArray(data[name])) type = "[" + type + "]";
-        $scope.schema.push({"name": name, "type": type});
+        if ($.isArray(data[name])) {
+	  type = '[' + type + ']';
+	}
+        $scope.schema.push({'name': name, 'type': type});
       });
     });
 
@@ -267,15 +277,17 @@ myAppControllers.
 
     $scope.saveFestival = function () {
       Festival.update({ festivalId: $scope.festival._id}, $scope.festival);
-    }
+    };
 
     $scope.schema = [];
 
-    $http.get("/api/v1/schema/festival").success(function (data) {
+    $http.get('/api/v1/schema/festival').success(function (data) {
       Object.getOwnPropertyNames(data).forEach(function (name) {
         var type = (data[name].type) || data[name];
-        if ($.isArray(data[name])) type = "[" + type + "]";
-        $scope.schema.push({"name": name, "type": type});
+        if ($.isArray(data[name])) {
+	  type = '[' + type + ']';
+	}
+        $scope.schema.push({'name': name, 'type': type});
       });
     });
   }]);
