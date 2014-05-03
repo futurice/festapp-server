@@ -10,6 +10,10 @@ Festapp project page: http://futurice.github.io/festapp-server/
 * When developing locally: `node import-data.js`
 * Run the project: `npm start`
 
+## Admin panel
+
+Admin panel is available at yourdomain/festapp-server/admin
+
 ## API Documentation
 
 Base URL is `/api/v1/`.

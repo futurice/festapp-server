@@ -1,0 +1,11 @@
+<div class="listing">
+    <input type="text" placeholder="New news item name here" ng-model="createNewsTitle.title"/>
+    <input type="button" value="Create new" ng-click="createNews()"/>
+</div>
+        <hr />
+<table class="listing">
+    <tr ng-repeat="newsItem in news" class="newsPick">
+        <td><input type="button" value="Delete" ng-click="deleteNews(newsItem._id)"/></td>
+        <td><a href="#/newsItem/{{newsItem._id}}">{{newsItem.title}}</a></td>
+    </tr>
+</table>

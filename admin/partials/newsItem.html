@@ -1,0 +1,31 @@
+<h3>{{newsItem.title}}</h3>
+
+<form>
+    <div ng-repeat="field in schema">
+        <div ng-switch on="field.type">
+            <div ng-switch-when="String">
+                <input type="text" ng-model=newsItem[field.name] /> {{field.name}}
+            </div>
+            <div ng-switch-when="Date">
+                <div class="input-append date" onload="$(this).datetimepicker({language: 'pt-BR'});">
+                    <input data-format="dd/MM/yyyy hh:mm:ss" type="text" ng-model=newsItem[field.name] />{{field.name}}
+                    <span class="add-on">
+                      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                      </i>
+                    </span>
+                </div>
+            </div>
+            <div ng-switch-default>
+                <input type="text" ng-model=newsItem[field.name] /> {{field.name}}
+            </div>
+        </div>
+    </div>
+    <p class="formSubmit">
+    <input type="submit" value="Submit da shit" ng-click="saveNews()"/>
+    </p>
+</form>
+
+<div class="json">
+    <h4>Here be the raw (tasty, maybe?!??!) JSON for teh devas.</h4>
+    <textarea class="json">{{newsItem}}</textarea>
+</div>

@@ -1,0 +1,12 @@
+<div class="listing">
+    <input type="text" placeholder="New artist name here" ng-model="createArtistName.name"/>
+    <input type="button" value="Create new" ng-click="createArtist()"/>
+</div>
+        <hr />
+<table class="listing">
+    <tr ng-repeat="artist in artists" class="artistPick">
+        <td><input type="button" value="Delete" ng-click="deleteArtist(artist._id)"/></td>
+        <td><img src="../{{artist.picture}}" alt=""/></td>
+        <td><a href="#/artist/{{artist._id}}">{{artist.name}}</a></td>
+    </tr>
+</table>

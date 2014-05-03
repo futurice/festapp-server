@@ -25,6 +25,7 @@ app.use(logger('short'));
 app.use(bodyParser());
 app.use('/api', accessFilter(accounts, apiVersion));
 app.use('/public', express.static(__dirname + '/public'));
+app.use('/admin', express.static(__dirname + '/admin'));
 
 routes(app, apiVersion);
 

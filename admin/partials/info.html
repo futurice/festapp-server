@@ -1,0 +1,11 @@
+<div class="listing">
+    <input type="text" placeholder="New info item title here" ng-model="createInfoTitle.title"/>
+    <input type="button" value="Create new" ng-click="createInfo()" />
+</div>
+        <hr />
+<table class="listing">
+    <tr ng-repeat="infoItem in infos" class="infoPick">
+        <td><input type="button" value="Delete" ng-click="deleteInfo(infoItem._id)"/></td>
+        <td><a href="#/infoItem/{{infoItem._id}}">{{infoItem.title}}</a></td>
+    </tr>
+</table>

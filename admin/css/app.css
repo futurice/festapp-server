@@ -1,0 +1,83 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+/*  border-bottom: 0.1em solid black;*/
+  margin-bottom: 2em;
+  padding: 1em;
+  background-color: #06121F;
+}
+
+.menu > li {
+  display: inline;
+    font-size: 2em;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+input[type="text"] {
+    width: 500px;
+}
+
+div.listing input[type="text"] {
+    width: 19em;
+}
+
+.contentWrapper {
+    padding: 20px;
+}
+
+
+.artist {
+    padding: 20px;
+}
+
+.artist img {
+    width: 100px;
+    height: 100px;
+}
+
+.artistPick {
+    padding: 20px;
+}
+
+.artistPick img {
+    width: 100px;
+    height: 100px;
+}
+
+table tr td img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+div.json {
+    padding-top: 4em;
+}
+
+textarea.json {
+    width:600px;
+    height:200px;
+    border:1px solid #000000;
+    background-color:#CCCCCC;
+}
+
+p.formSubmit {
+    padding-top: 1em;
+}
+
+table.listing tr td {
+    padding-left: 2em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    border-bottom-style: dashed;
+    border-bottom-width: 1px;
+}
