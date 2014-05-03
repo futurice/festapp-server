@@ -23,8 +23,9 @@ var app = express();
 
 app.use(logger('short'));
 app.use(bodyParser());
-app.use('/api', accessFilter(accounts, apiVersion));
+app.use('/api', accessFilter.authAPI(accounts, apiVersion));
 app.use('/public', express.static(__dirname + '/public'));
+app.use('/admin', accessFilter.authAdminUI(accounts));
 app.use('/admin', express.static(__dirname + '/admin'));
 
 routes(app, apiVersion);
