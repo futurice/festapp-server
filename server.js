@@ -4,10 +4,6 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var routes = require('./routes');
 var mongoose = require('mongoose');
-//var mb = require('musicbrainz');
-
-var lastfm = require('./lib/lastfm_artist_search')
-
 
 var mongourl = process.env.MONGOLAB_URI || 'mongodb://localhost/festapp-dev';
 mongoose.connect(mongourl);

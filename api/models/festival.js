@@ -5,8 +5,8 @@ var FestivalSchema = new Schema({
   name: { type: String, default: '' },
   organizer: String,
   sponsors: [String],
-  start_date: Date,
-  end_date: Date,
+  start_date: Date,   // jshint ignore:line
+  end_date: Date,     // jshint ignore:line
   city: String,
   country: String,
   coordinates: {

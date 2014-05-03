@@ -16,8 +16,8 @@ var ArtistSchema = new Schema({
   highlights: [String],
   youtube: String,
   spotify: String,
-  contact_info: String,
-  press_image: String,
+  contact_info: String, // jshint ignore:line
+  press_image: String,  // jshint ignore:line
   credits: String,
   place: Number
 });
