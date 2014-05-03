@@ -24,8 +24,6 @@ We currently have some integrations to the following services:
 
 ## API Documentation
 
-In all cases the base URL is `/api/v1/`.
-
 ### Twitter
 
 In order for the API to work, you must have the following environmental variables set:
@@ -41,12 +39,12 @@ You want to find all mentions of your event's name for example:
 
 ![Twitter full-text search](public/twitter-full-text.png)
 
-`GET /twitter/search/:search-term/:limit`
+`GET /api/v1/twitter/search/:search-term/:limit`
 
 Note: The `:limit` is optional, you can omit it and you will get by default 10 results.
 
 Example:
-`GET /twitter/search/ruisrock/2`
+`GET /api/v1/twitter/search/ruisrock/2`
 
 
 **Response**
@@ -81,10 +79,10 @@ You want to show your event's twitter account feed
 ![Twitter user timeline](public/twitter-from-user.png)
 
 
-`GET /twitter/user/:twitter-handle/:limit`
+`GET /api/v1/twitter/user/:twitter-handle/:limit`
 
 Example:
-`GET /twitter/user/futurice/2`
+`GET /api/v1/twitter/user/futurice/2`
 
 ```json
 [
@@ -115,10 +113,10 @@ You want to follow your event's hashtag
 
 ![Twitter hashtag search](public/twitter-hashtag.png)
 
-`GET /twitter/hashtag/:hashtag/:limit`
+`GET /api/v1/twitter/hashtag/:hashtag/:limit`
 
 Example:
-`GET /twitter/hashtag/osrockathon/2`
+`GET /api/v1/twitter/hashtag/osrockathon/2`
 
 ```json
 [
@@ -163,7 +161,7 @@ You want to follow your event's hashtag:
 
 ![Instagram hashtag search](public/instagram-hashtag.png)
 
-`GET /api/instagram/tag`
+`GET /api/v1/instagram/tag`
 
 Note: The API does not yet provide searching on variable usernames, just the hard-coded event hashtag.
 
@@ -196,7 +194,7 @@ Note: The API does not yet provide searching on variable usernames, just the har
 
 ![Instagram user feed](public/instagram-user.png)
 
-`GET /api/instagram/user`
+`GET /api/v1/instagram/user`
 
 **Response**
 
@@ -471,7 +469,7 @@ LASTFM_EVENT_ID
 ![Last.fm recommended lineup](public/lastfm-recommended.png)
 
 
-`GET /top-artists/:username`
+`GET /api/v1/top-artists/:username`
 
 ```json
 [
@@ -502,19 +500,19 @@ LASTFM_EVENT_ID
 
 Only takes artist name and returns a JSON response with found results bound to the ArtistModel.
 
-`GET /api/lastfm/search/:artist`
+`GET /api/v1/lastfm/search/:artist`
 
 ### OpenWeatherMap
 
 Get local weather for your event upt next 14 days at 3 hour intervals.
 
-`GET /weather/:city/:epoch-timestamp`
+`GET /api/v1/weather/:city/:epoch-timestamp`
 
 Note: `:timestamp` is optional and will by default just return the current weather.
 
 Example:
 
-`GET /weather/helsinki/1397467133`
+`GET /api/v1/weather/helsinki/1397467133`
 
 ```json
 {
