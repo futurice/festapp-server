@@ -50,13 +50,8 @@
     "after": "^0.8.1",
     "body-parser": "^1.0.1",
     "mongoose-unique-validator": "^0.3.0",
-    "jshint": "~2.5.0",
-    "karma": "~0.10",
-    "protractor": "~0.17.0",
     "http-server": "^0.6.1",
     "bower": "^1.3.1",
-    "shelljs": "^0.2.6",
-    "request": "^2.34.0",
     "imdb-api": "^1.3.3",
     "lodash": "^2.4.1",
     "underscore.string": "^2.3.3",
@@ -68,6 +63,10 @@
     "gulp-jshint": "^1.5.3",
     "gulp-nodemon": "^1.0.2",
     "supertest": "^0.10.0",
-    "mocha": "^1.18.2"
+    "mocha": "^1.18.2",
+    "jshint": "~2.5.0",
+    "karma": "~0.10",
+    "protractor": "~0.17.0",
+    "shelljs": "^0.2.6"
   }
 }
