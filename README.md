@@ -10,16 +10,16 @@ Festapp project page: http://futurice.github.io/festapp-server/
 * When developing locally: `node import-data.js`
 * Run the project: `npm start`
 
+The server listens in port 8080 by default. The port can be changed by setting environment variable PORT.
+
 ## Admin panel
 
-Admin panel is available at yourdomain/festapp-server/admin
+Admin panel for editing artist, event and other info in the database is available at `/admin`.
 
 ## API Documentation
 
-Base URL is `/api/v1/`.
-
 ### Get artists
-`GET /artists`
+`GET /api/v1/artists`
 
 **Response**
 ```json
@@ -48,7 +48,7 @@ Base URL is `/api/v1/`.
 ```
 
 ### Get Info
-`GET /info`
+`GET /api/v1/info`
 
 **Response**
 ```json
@@ -65,7 +65,7 @@ Base URL is `/api/v1/`.
 
 ### Get news
 
-`GET /news`
+`GET /api/v1/news`
 
 **Response**
 ```json
@@ -83,7 +83,7 @@ Base URL is `/api/v1/`.
 ```
 
 ### Get locations
-`GET /locations` or `GET /locations?type=RESTAURANT`
+`GET /api/v1/locations` or `GET /api/v1/locations?type=RESTAURANT`
 
 type can `STAGE` or `RESTAURANT`
 
@@ -114,7 +114,7 @@ type can `STAGE` or `RESTAURANT`
 ```
 
 ### Get festival
-`GET /festival`
+`GET /api/v1/festival`
 
 **Response**
 ```json
@@ -138,7 +138,7 @@ type can `STAGE` or `RESTAURANT`
 ```
 
 ### Get events
-`GET /events`
+`GET /api/v1/events`
 
 **Response**
 ```json
@@ -157,7 +157,7 @@ type can `STAGE` or `RESTAURANT`
 ```
 ### Starring events
 
-`POST /events/:event_id/star`
+`POST /api/v1/events/:event_id/star`
 
 `user_id` parameter must be set in the POST body. `user_id` is used to uniquely identify users and one user can star one event only once. `event_id` is the database id of event.
 
