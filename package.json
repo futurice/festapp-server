@@ -6,7 +6,6 @@
   "scripts": {
     "test": "gulp lint && mocha",
     "start": "node server.js",
-    "postinstall": "bower install",
     "update-webdriver": "webdriver-manager update"
   },
   "repository": {
@@ -48,7 +47,6 @@
     "body-parser": "^1.0.1",
     "mongoose-unique-validator": "^0.3.0",
     "http-server": "^0.6.1",
-    "bower": "^1.3.1",
     "imdb-api": "^1.3.3",
     "lodash": "^2.4.1",
     "underscore.string": "^2.3.3",
