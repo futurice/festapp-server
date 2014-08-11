@@ -11,8 +11,10 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 var apiVersion = '/v1';
+var adminUser = 'admin';
+var adminPassword = process.env.ADMIN_PASSWORD || 'admin';
 // Accounts which may do POST and PUT -requests to api
-var accounts = ['admin:admin'];
+var accounts = [adminUser+':'+adminPassword];
 var accessFilter = require('./lib/access_filter');
 
 var app = express();
